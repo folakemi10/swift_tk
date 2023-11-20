@@ -30,6 +30,7 @@
 		9AB48F2C2AFB05E000E4C8FA /* GameSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB48F2B2AFB05E000E4C8FA /* GameSegmentViewController.swift */; };
 		9AB48F2E2AFB069600E4C8FA /* PuzzleGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB48F2D2AFB069600E4C8FA /* PuzzleGameViewController.swift */; };
 		9AB48F302AFB06AA00E4C8FA /* GuessGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB48F2F2AFB06AA00E4C8FA /* GuessGameViewController.swift */; };
+		ADE77FA72B0ADE3E007C99EC /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE77FA62B0ADE3E007C99EC /* Files.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,7 @@
 		9AB48F2B2AFB05E000E4C8FA /* GameSegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSegmentViewController.swift; sourceTree = "<group>"; };
 		9AB48F2D2AFB069600E4C8FA /* PuzzleGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleGameViewController.swift; sourceTree = "<group>"; };
 		9AB48F2F2AFB06AA00E4C8FA /* GuessGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessGameViewController.swift; sourceTree = "<group>"; };
+		ADE77FA62B0ADE3E007C99EC /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				9AB48F232AFAECDD00E4C8FA /* ScramblingViewController.swift */,
 				9AB48F252AFAF19E00E4C8FA /* UnscramblingViewController.swift */,
 				6DFBEDE12B057F9D001CA0A4 /* Algorithms.swift */,
+				ADE77FA62B0ADE3E007C99EC /* Files.swift */,
 				9AB48F292AFB022100E4C8FA /* MosaicViewController.swift */,
 				9AB48F2B2AFB05E000E4C8FA /* GameSegmentViewController.swift */,
 				9AB48F2D2AFB069600E4C8FA /* PuzzleGameViewController.swift */,
@@ -239,6 +242,7 @@
 				9AB48F0C2AFAC88600E4C8FA /* AppDelegate.swift in Sources */,
 				9AB48F242AFAECDD00E4C8FA /* ScramblingViewController.swift in Sources */,
 				9AB48F2C2AFB05E000E4C8FA /* GameSegmentViewController.swift in Sources */,
+				ADE77FA72B0ADE3E007C99EC /* Files.swift in Sources */,
 				9AB48F2E2AFB069600E4C8FA /* PuzzleGameViewController.swift in Sources */,
 				9AB48F222AFAE24D00E4C8FA /* CustomCusCollectionViewCell.swift in Sources */,
 				9AB48F302AFB06AA00E4C8FA /* GuessGameViewController.swift in Sources */,

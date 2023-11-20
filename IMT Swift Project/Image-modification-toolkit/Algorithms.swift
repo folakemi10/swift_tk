@@ -9,96 +9,45 @@ import Foundation
 
 import SwiftImage
 
-func abcabc() {
-    var image: Image<UInt8> = Image(width: 640, height: 480, pixels: [255, 248, /* ... */])
-
- 
+class ImageModificationClass{
+//    var image:AnyImage =  // TODO: Initialize Images
+//    var rawImage:AnyImage =
+    private var tempRoots: [Int] = []
+    private var pixelSize: Int = 0
+    private var tempA: [Int] = []
+    private var safePrime: Int = 0
+    
+    public func getSafePrime() -> Int {
+        return safePrime
+    }
+    public func tempRootArray() -> [Int]{
+        return tempRoots
+    }
+    public func enhancedTempRootArray() -> [Int]{
+        return tempRoots + tempA
+    }
+    private var safePrimes: [Int] = [5, 7, 11, 23, 47, 59, 83, 107, 167, 179, 227, 263, 347, 359, 383, 467, 479, 503, 563, 587, 719, 839, 863, 887, 983, 1019, 1187, 1283, 1307, 1319, 1367, 1439, 1487, 1523, 1619, 1823, 1907, 2027, 2039, 2063, 2099, 2207, 2447, 2459, 2579, 2819, 2879, 2903, 2963, 2999, 3023, 3119, 3167, 3203, 3467, 3623, 3779, 3803, 3863, 3947, 4007, 4079, 4127, 4139, 4259, 4283, 4547, 4679, 4703, 4787, 4799, 4919]
+    public func setSafePrimeIndex (spIndex: Int) {
+        safePrime = safePrimes[spIndex]
+    }
+    public func setMosaicPixelSize (pxSize: Int) {
+        pixelSize = pxSize
+    }
+    private var approxImages: [Image] = []
+    // TODO: Check if AnyImage is correct initalizer
+    //private ArrayList<BufferedImage> approxImages = new ArrayList<BufferedImage>();
+    
+    public func setApproxImages (directoryName: String, size: Int) throws {
+        for file in try Folder(path: directoryName).files {
+            guard let image = Image<RGBA<UInt8>>(named: file.name)
+            else {return}
+            let newImage = image.resizedTo(width:size, height: size)
+            approxImages.append(newImage)
+        }
+    }
     
 }
 /*
- import java.util.*;
- import java.awt.*;
- import java.awt.image.BufferedImage;
- import java.io.File;
- import java.io.IOException;
- import javax.imageio.*;
- public class ImageModificationClass {
-     
-     private BufferedImage image;
-     private BufferedImage rawImage;
-     private int tempRoot1;
-     private int tempRoot2;
-     private int tempRoot3;
-     private int tempRoot4;
-     private static int pixelSize;
-     private int tempRoot5;
-     private int tempRoot6;
-     
-     private int tempA1;
-     private int tempA2;
-     private int tempA3;
-     private int tempA4;
-     private int tempA5;
-     private int tempA6;
-     
-     
-     private static int safePrime;
-     
-     
-    /*private static double percentEncrypted;
-     private static double percentDecrypted;
-     private static double percentEmojified;
-     private static double percentRemoved;*/
-     
-     
-     public int getSafePrime () {
-         return safePrime;
-     }
-     
-     public ArrayList<Integer> tempRootArray() {
-         ArrayList<Integer> result = new ArrayList<Integer>();
-         result.add(tempRoot1);
-         result.add(tempRoot2);
-         result.add(tempRoot3);
-         result.add(tempRoot4);
-         result.add(tempRoot5);
-         result.add(tempRoot6);
-         return result;
-
-         
-     }
-     
-     public ArrayList<Integer> enhancedTempRootArray() {
-         ArrayList<Integer> result = new ArrayList<Integer>();
-         result.add(tempRoot1);
-         result.add(tempRoot2);
-         result.add(tempRoot3);
-         result.add(tempRoot4);
-         result.add(tempRoot5);
-         result.add(tempRoot6);
-         result.add(tempA1);
-         result.add(tempA2);
-         result.add(tempA3);
-         result.add(tempA4);
-         result.add(tempA5);
-         result.add(tempA6);
-         return result;
-
-         
-     }
-
-     
-     private int [] safePrimes = {5, 7, 11, 23, 47, 59, 83, 107, 167, 179, 227, 263, 347, 359, 383, 467, 479, 503, 563, 587, 719, 839, 863, 887, 983, 1019, 1187, 1283, 1307, 1319, 1367, 1439, 1487, 1523, 1619, 1823, 1907, 2027, 2039, 2063, 2099, 2207, 2447, 2459, 2579, 2819, 2879, 2903, 2963, 2999, 3023, 3119, 3167, 3203, 3467, 3623, 3779, 3803, 3863, 3947, 4007, 4079, 4127, 4139, 4259, 4283, 4547, 4679, 4703, 4787, 4799, 4919};
-     public void setSafePrimeIndex (int spIndex) {
-         safePrime = safePrimes[spIndex];
-     }
-     
-     public void setMosaicPixelSize (int pxSize) {
-         pixelSize = pxSize;
-     }
-     
-     private ArrayList<BufferedImage> approxImages = new ArrayList<BufferedImage>();
-     
      public void setApproxImages (String directoryName, int size) throws IOException {
          File folder = new File (directoryName);
          for (File approxImage : folder.listFiles()) {
@@ -422,10 +371,6 @@ func abcabc() {
          return resizedImage;
      }
      
-
-     
-     
-     
      public static int discreteLogBasePrModsafePrime (int base, int k) {
             int value = 0;
             for (int i = 0; i < safePrime; i++) {
@@ -440,10 +385,6 @@ func abcabc() {
      public static int discreteLogBasePrModsafePrime_ (int base, int k) {
            return discreteLogarithm(base, k, safePrime);
        }
-     
-     
-     
-     
      
      static int discreteLogarithm(int a, int b, int m)
      {
@@ -828,10 +769,8 @@ func abcabc() {
                m.setPixel(x, j, newImage);
            }
            System.out.println("Row " + x + " unscrambled");
-             
-
-
-       }
+ 
+ }
        unscrambled = m.getMosaic();
        return unscrambled;
      }
@@ -911,9 +850,6 @@ func abcabc() {
                     m.setPixel(modifiedX, j, newImage);
                 }
                 System.out.println("Row " + x + " unscrambled");
-                   
-
-
             }
             unscrambled = m.getMosaic();
             return unscrambled;
@@ -937,9 +873,6 @@ func abcabc() {
                     m.setPixel(x, j, newImage);
                 }
                 System.out.println("Row " + x + " unscrambled");
-                   
-
-
             }
             unscrambled = m.getMosaic();
             return unscrambled;
@@ -1055,12 +988,8 @@ func abcabc() {
                    BufferedImage sub = origMosaic.getSubimage(x * pixelSize, y*pixelSize, pixelSize, pixelSize);
 
                    mosaicImages.add(sub);
-
-                   
-                   
                }
            }
-             
          }
          
          public BufferedImage getMosaic () {
@@ -1109,10 +1038,6 @@ func abcabc() {
              int totalPixels = bi.getWidth() * bi.getHeight();
              return new Color((int) (rSum / totalPixels), (int) (gSum / totalPixels), (int) (bSum / totalPixels));
          }
-         
-     }
-
-
-
+ }
 
  */
