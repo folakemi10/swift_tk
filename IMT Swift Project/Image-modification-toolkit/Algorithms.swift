@@ -8,10 +8,12 @@
 import Foundation
 
 import SwiftImage
+import CoreGraphics
+import UIKit
 
 class ImageModificationClass{
-    var image:Image<RGBA<UInt8>>? = nil // TODO: Initialize Images? May not be necessary
-    var rawImage:Image<RGBA<UInt8>>? = nil
+    var image:Image<RGBA<UInt8>>
+    var rawImage:Image<RGBA<UInt8>>
     private var tempRoots: [Int] = []
     private var pixelSize: Int = 0
     private var tempA: [Int] = []
@@ -53,8 +55,8 @@ class ImageModificationClass{
     }
     private func computeAverage (image:Image<RGBA<UInt8>>) -> RGBA<UInt8> {
         var rSum: Int = 0, gSum: Int = 0, bSum: Int = 0
-        for i in 0..<image.width {
-            for j in 0..<image.height {
+        for i in image.xRange {
+            for j in image.yRange {
                 let pixel: RGBA<UInt8> = image[i, j]
                 rSum += Int(pixel.red)
                 gSum += Int(pixel.green)
@@ -98,70 +100,39 @@ class ImageModificationClass{
         return minDistanceIndex
     }
     public func emojify (width: Int, height: Int, emojiSize: Int) throws {
-        // read image TODO: Check reading image
-        // Currently assuming front end will read image and display it first, which means it can be fed to class after initializing as SwiftImage
-        guard var image = rawImage?.resizedTo(width: width, height: height)
-        else {
-            print("Error, could not find rawImage")
-            throw Exception.cannotReadFile
-        }
-        for x in 0..<width {
-            for y in 0..<height {
-                let slice: ImageSlice<RGBA<UInt8>> = image[x * emojiSize..<x * emojiSize + emojiSize, y * emojiSize..<y * emojiSize + emojiSize]
-                let sub = Image<RGBA<UInt8>>(slice)
-                let inputColor = computeAverage(image: sub)
-                let index = determineClosestIndex(input: inputColor)
-                let replace = approxImages[index]
+        image = rawImage.resizedTo(width: width, height: height)
+        for x in 0 ..< width {
+            for y in 0 ..< height {
+                let slice: ImageSlice<RGBA<UInt8>> = image[x * emojiSize ..< x * emojiSize + emojiSize, y * emojiSize ..< y * emojiSize + emojiSize]
+                let sub:Image<RGBA<UInt8>> = Image<RGBA<UInt8>>(slice)
+                let inputColor:RGBA<UInt8> = computeAverage(image: sub)
+                let index:Int = determineClosestIndex(input: inputColor)
+                let replace:Image<RGBA<UInt8>> = approxImages[index]
                 for i in x * emojiSize ..< (x+1) * emojiSize {
                     for j in y * emojiSize ..< (y+1) * emojiSize {
-                        let newRGB = replace[i % emojiSize, j % emojiSize]
+                        let newRGB:RGBA<UInt8> = replace[i % emojiSize, j % emojiSize]
                         image[i, j] = newRGB
                     }
                 }
             }
         }
-        print("Image emojified with " + width + " emojis by " + height + " emojis. ")
-//        imageView.image = image.uiImage
-        
-        return
+//        let imageView: UIImageView = UIImageView(image: image.uiImage)
+        UIImageWriteToSavedPhotosAlbum(image.uiImage, nil, nil, nil)
+    }
+    init(directory: String) {
+        // TODO: Safely unwrap directory image
+        rawImage = Image<RGBA<UInt8>>.init(contentsOfFile: directory) ?? Image<RGBA<UInt8>>(width: 1, height: 1, pixel: .black)
+        self.image = rawImage
+    }
+    init(image: UIImage) {
+        rawImage = Image<RGBA<UInt8>>(uiImage: image)
+        self.image = rawImage
+    }
+    public func getImage () -> Image<RGBA<UInt8>> {
+        return image
     }
 }
 /*
-     
-           
-                    for (int i = x*emojiSize; i < (x+1)*emojiSize; i++) {
-                       for (int j = y*emojiSize; j < (y+1)*emojiSize; j++) {
-                           int newRGB = replace.getRGB(i % emojiSize, j % emojiSize);
-                           image.setRGB(i, j, newRGB);
-          
-                           
-                       }
-                    }
-                    
-                }
-            }
-            System.out.println("Image emojified with " + width + " emojis by " + height + " emojis. ");
-           ImageIO.write(image, "png", f);
-           System.out.println("Writing complete.");
-            
-     }
-     
-     
-     
-     private String fileName;
-     public ImageModificationClass (String fn) {
-         fileName = fn;
-        
-     }
-     
-     public ImageModificationClass (BufferedImage im) {
-         rawImage = im;
-        
-     }
-     
-     public BufferedImage getImage () {
-         return image;
-     }
      
      
      public void enhancedMosaicEncrypt () throws IOException{
