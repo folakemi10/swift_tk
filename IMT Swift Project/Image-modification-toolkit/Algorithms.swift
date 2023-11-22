@@ -10,13 +10,15 @@ import Foundation
 import SwiftImage
 
 class ImageModificationClass{
-//    var image:AnyImage =  // TODO: Initialize Images
-//    var rawImage:AnyImage =
+    var image:Image<RGBA<UInt8>>? = nil // TODO: Initialize Images? May not be necessary
+    var rawImage:Image<RGBA<UInt8>>? = nil
     private var tempRoots: [Int] = []
     private var pixelSize: Int = 0
     private var tempA: [Int] = []
     private var safePrime: Int = 0
-    
+    enum Exception: Error {
+        case cannotReadFile
+    }
     public func getSafePrime() -> Int {
         return safePrime
     }
@@ -33,10 +35,14 @@ class ImageModificationClass{
     public func setMosaicPixelSize (pxSize: Int) {
         pixelSize = pxSize
     }
-    private var approxImages: [Image] = []
-    // TODO: Check if AnyImage is correct initalizer
-    //private ArrayList<BufferedImage> approxImages = new ArrayList<BufferedImage>();
+    private var approxImages: [Image<RGBA<UInt8>>] = []
+    // TODO: Check if Any is correct initalizer
+    // Original Java:
+    // private ArrayList<BufferedImage> approxImages = new ArrayList<BufferedImage>();
     
+    public func getApproxImages() -> [Image<RGBA<UInt8>>] {
+        return approxImages
+    }
     public func setApproxImages (directoryName: String, size: Int) throws {
         for file in try Folder(path: directoryName).files {
             guard let image = Image<RGBA<UInt8>>(named: file.name)
@@ -45,99 +51,83 @@ class ImageModificationClass{
             approxImages.append(newImage)
         }
     }
-    
+    private func computeAverage (image:Image<RGBA<UInt8>>) -> RGBA<UInt8> {
+        var rSum: Int = 0, gSum: Int = 0, bSum: Int = 0
+        for i in 0..<image.width {
+            for j in 0..<image.height {
+                let pixel: RGBA<UInt8> = image[i, j]
+                rSum += Int(pixel.red)
+                gSum += Int(pixel.green)
+                bSum += Int(pixel.blue)
+            }
+        }
+        let totalPixels = image.width * image.height
+        let rAvg = UInt8(rSum / totalPixels)
+        let gAvg = UInt8(gSum / totalPixels)
+        let bAvg = UInt8(bSum / totalPixels)
+        return RGBA(red: rAvg, green: gAvg, blue: bAvg)
+    }
+    private func computeAverages (input:[Image<RGBA<UInt8>>]) -> [RGBA<UInt8>] {
+        var result: [RGBA<UInt8>] = []
+        for i in input {
+            result.append(computeAverage(image:i))
+        }
+        return result
+    }
+    private func determineClosestIndex (input: RGBA<UInt8>) -> Int {
+        var minDistance:Double = 99999999
+        var minDistanceIndex:Int = 0
+        let colorBank:[RGBA<UInt8>] = computeAverages(input: approxImages)
+        let red:Double = Double(input.red)
+        let green:Double = Double(input.green)
+        let blue:Double = Double(input.blue)
+        for i in 0..<colorBank.count{
+            let candidate = colorBank[i]
+            let candidateRed:Double = Double(candidate.red)
+            let candidateGreen:Double = Double(candidate.green)
+            let candidateBlue:Double = Double(candidate.blue)
+            let squared:Double = pow(candidateRed - red, 2)
+                               + pow(candidateGreen - green, 2)
+                               + pow(candidateBlue - blue, 2)
+            let distance:Double = sqrt(squared)
+            if distance < minDistance {
+                minDistance = distance
+                minDistanceIndex = i
+            }
+        }
+        return minDistanceIndex
+    }
+    public func emojify (width: Int, height: Int, emojiSize: Int) throws {
+        // read image TODO: Check reading image
+        // Currently assuming front end will read image and display it first, which means it can be fed to class after initializing as SwiftImage
+        guard var image = rawImage?.resizedTo(width: width, height: height)
+        else {
+            print("Error, could not find rawImage")
+            throw Exception.cannotReadFile
+        }
+        for x in 0..<width {
+            for y in 0..<height {
+                let slice: ImageSlice<RGBA<UInt8>> = image[x * emojiSize..<x * emojiSize + emojiSize, y * emojiSize..<y * emojiSize + emojiSize]
+                let sub = Image<RGBA<UInt8>>(slice)
+                let inputColor = computeAverage(image: sub)
+                let index = determineClosestIndex(input: inputColor)
+                let replace = approxImages[index]
+                for i in x * emojiSize ..< (x+1) * emojiSize {
+                    for j in y * emojiSize ..< (y+1) * emojiSize {
+                        let newRGB = replace[i % emojiSize, j % emojiSize]
+                        image[i, j] = newRGB
+                    }
+                }
+            }
+        }
+        print("Image emojified with " + width + " emojis by " + height + " emojis. ")
+//        imageView.image = image.uiImage
+        
+        return
+    }
 }
 /*
-     public void setApproxImages (String directoryName, int size) throws IOException {
-         File folder = new File (directoryName);
-         for (File approxImage : folder.listFiles()) {
-             BufferedImage bi = ImageIO.read(approxImage);
-             BufferedImage addedImage = resizeImage(bi, size, size);
-             approxImages.add(addedImage);
-         }
-         
-     }
      
-     public ArrayList<BufferedImage> getApproxImages () {
-         return approxImages;
-     }
-     
-     private ArrayList<Color> computeAverages (ArrayList<BufferedImage> input) {
-         ArrayList<Color> result = new ArrayList<Color>();
-         for (int i = 0; i < input.size(); i++) {
-             result.add(computeAverage(input.get(i)));
-         }
-         return result;
-     }
-     
-     private static Color computeAverage (BufferedImage bi) {
-         long rSum = 0;
-         long gSum = 0;
-         long bSum = 0;
-         for (int i = 0; i < bi.getWidth(); i++) {
-             for (int j = 0; j < bi.getHeight(); j++) {
-                 Color c = new Color (bi.getRGB(i, j));
-                 rSum += c.getRed();
-                 gSum += c.getGreen();
-                 bSum += c.getBlue();
-             }
-         }
-         int totalPixels = bi.getWidth() * bi.getHeight();
-         return new Color((int) (rSum / totalPixels), (int) (gSum / totalPixels), (int) (bSum / totalPixels));
-     }
-     
-     private int determineClosestIndex (Color input) {
-         ArrayList<Color> colorBank = computeAverages (approxImages);
-         
-         int minDistance = 99999999;
-         int minDistanceIndex = 0;
-         
-         for (int i = 0; i < colorBank.size(); i++) {
-             Color candidate = colorBank.get(i);
-             double candidateRed = candidate.getRed();
-             double candidateGreen = candidate.getGreen();
-             double candidateBlue = candidate.getBlue();
-             double red = input.getRed();
-             double green = input.getGreen();
-             double blue = input.getBlue();
-             double squared = Math.pow(candidateRed - red, 2) + Math.pow(candidateGreen - green, 2) + Math.pow(candidateBlue - blue, 2);
-             double distance = Math.sqrt(squared);
-             
-             if (distance < minDistance) {
-                 minDistance = (int) distance;
-                 minDistanceIndex = i;
-             }
-             
-         }
-         
-         return minDistanceIndex;
-         
-         
-     }
-     
-     public void emojify (int width, int height, int emojiSize) throws IOException {
-         //read image
-         File f = null;
-            try{
-              f = new File(fileName); //image file path
-              rawImage = new BufferedImage((safePrime - 1), (safePrime - 1), BufferedImage.TYPE_INT_ARGB);
-              rawImage = ImageIO.read(f);
-              image = resizeImage(rawImage, width*emojiSize, height*emojiSize);
-              System.out.println("Reading complete.");
-            }catch(IOException e){
-              System.out.println("Error: "+e);
-            }
-            
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    
-                    //compute average RGB of cell
-                    BufferedImage sub = image.getSubimage(x * emojiSize, y*emojiSize, emojiSize, emojiSize);
-                    
-                    Color inputColor = computeAverage (sub);
-                    int index = determineClosestIndex (inputColor);
-                    BufferedImage replace = approxImages.get(index);
-                    
            
                     for (int i = x*emojiSize; i < (x+1)*emojiSize; i++) {
                        for (int j = y*emojiSize; j < (y+1)*emojiSize; j++) {
