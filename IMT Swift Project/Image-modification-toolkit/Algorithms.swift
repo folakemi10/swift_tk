@@ -34,10 +34,12 @@ class ImageModificationClass{
     public func getSecretCode () -> String {
         return secretCode
     }
+    private var safePrimeIndex: Int = 3
     private var safePrimes: [Int] = [5, 7, 11, 23, 47, 59, 83, 107, 167, 179, 227, 263, 347, 359, 383, 467, 479, 503, 563, 587, 719, 839, 863, 887, 983, 1019, 1187, 1283, 1307, 1319, 1367, 1439, 1487, 1523, 1619, 1823, 1907, 2027, 2039, 2063, 2099, 2207, 2447, 2459, 2579, 2819, 2879, 2903, 2963, 2999, 3023, 3119, 3167, 3203, 3467, 3623, 3779, 3803, 3863, 3947, 4007, 4079, 4127, 4139, 4259, 4283, 4547, 4679, 4703, 4787, 4799, 4919]
     
     public func setSafePrimeIndex (spIndex: Int) {
         safePrime = safePrimes[spIndex]
+        safePrimeIndex = spIndex
     }
     public func setMosaicPixelSize (pxSize: Int) {
         pixelSize = pxSize
@@ -1044,7 +1046,7 @@ class ImageModificationClass{
         var scrambledImage7 = funnyMosaicScrambleD1 (original: scrambledImage6, pr1: a3, pr2: a4)
         var scrambledImage8 = funnyMosaicScrambleD2 (original: scrambledImage7, pr1: a5, pr2: a6)
         image = scrambledImage8
-        secretCode = String(proot1) + " " + String(proot2) + " " + String(proot3) + " " + String(proot4) + " " + String(proot5) + " " + String(proot6) + " " + String(a1) + " " + String(a2) + " " + String(a3) + " " + String(a4) + " " + String(a5) + " " + String(a6)
+        secretCode = String(proot1) + " " + String(proot2) + " " + String(proot3) + " " + String(proot4) + " " + String(proot5) + " " + String(proot6) + " " + String(a1) + " " + String(a2) + " " + String(a3) + " " + String(a4) + " " + String(a5) + " " + String(a6) + " " + String(safePrimeIndex)
         
     }
     
