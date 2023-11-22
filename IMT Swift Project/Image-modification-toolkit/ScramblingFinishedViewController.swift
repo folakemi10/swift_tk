@@ -11,12 +11,16 @@ import UIKit
 
 class ScramblingFinishedViewController: UIViewController {
     var scramblingPlaceholderAfter: UIImage = UIImage(named: "scrambledplaceholder")!
-
+    var displayImage: UIImage?
+    var codeString: String = ""
+    @IBOutlet weak var codeField: UITextField!
+    
     @IBOutlet weak var editedImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        editedImage.image = scramblingPlaceholderAfter
+        editedImage.image = displayImage
+        codeField.text = codeString
        
     }
    
