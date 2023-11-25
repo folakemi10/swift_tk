@@ -412,7 +412,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="sIk-bO-Y4Q">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="CeS-w7-gcb">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="CeS-w7-gcb">
                             <rect key="frame" x="50" y="5.6666666666666679" width="317" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -466,9 +466,20 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="ltP-xy-gV9" kind="push" id="h9L-q2-JHJ"/>
+                                    <segue destination="ltP-xy-gV9" kind="push" identifier="finishedScrambling" id="h9L-q2-JHJ"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vae-6e-Txd">
+                                <rect key="frame" x="61" y="730" width="271" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Pieces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXh-MQ-6Hu">
+                                <rect key="frame" x="128" y="684" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YpD-mu-eBj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -477,6 +488,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="safePrimeSlider" destination="vae-6e-Txd" id="8ph-9T-PPd"/>
                         <outlet property="uploadImage" destination="OaX-LE-iDF" id="hgE-ap-IMR"/>
                     </connections>
                 </viewController>
@@ -504,6 +516,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Download Image">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="downloadClicked:" destination="L7y-iG-etH" eventType="touchUpInside" id="67D-DG-03U"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f4D-cJ-itP"/>
@@ -597,7 +612,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="L7y-iG-etH" kind="push" id="RqC-4l-eN2"/>
+                                    <segue destination="L7y-iG-etH" kind="push" identifier="finishedUnscrambling" id="RqC-4l-eN2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -606,6 +621,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Xo-qF-DQH"/>
                     <connections>
+                        <outlet property="keyField" destination="igY-fz-QHi" id="3KR-jw-NHQ"/>
                         <outlet property="uploadImage2" destination="637-7k-xxt" id="olF-qd-mRI"/>
                     </connections>
                 </viewController>
@@ -739,6 +755,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Download Image">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="downloadButtonClicked:" destination="ltP-xy-gV9" eventType="touchUpInside" id="jZh-W5-v6u"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5786YUP0909" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vbe-SC-PVs">
                                 <rect key="frame" x="76" y="688" width="241" height="34"/>
@@ -758,6 +777,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="7nO-ZB-IwE"/>
                     <connections>
+                        <outlet property="codeField" destination="Vbe-SC-PVs" id="w9M-WY-7xr"/>
+                        <outlet property="downloadButton" destination="fQv-Ii-bGb" id="VWw-Oc-cMN"/>
                         <outlet property="editedImage" destination="ohJ-l4-gut" id="Jqh-gR-umG"/>
                     </connections>
                 </viewController>

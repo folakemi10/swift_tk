@@ -14,6 +14,7 @@ class ScramblingFinishedViewController: UIViewController {
     var displayImage: UIImage?
     var codeString: String = ""
     @IBOutlet weak var codeField: UITextField!
+    @IBOutlet weak var downloadButton: UIButton!
     
     @IBOutlet weak var editedImage: UIImageView!
     override func viewDidLoad() {
@@ -23,5 +24,8 @@ class ScramblingFinishedViewController: UIViewController {
         codeField.text = codeString
        
     }
-   
+    @IBAction func downloadButtonClicked(_ sender: Any) {
+        UIImageWriteToSavedPhotosAlbum(displayImage!, nil, nil, nil)
+    }
+    
 }

@@ -14,4 +14,7 @@ class UnscramblingFinishedViewController: UIViewController {
        
     }
    
+    @IBAction func downloadClicked(_ sender: Any) {
+        UIImageWriteToSavedPhotosAlbum (unscrambledResult!, nil, nil, nil)
+    }
 }
