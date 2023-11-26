@@ -8,6 +8,7 @@
 import UIKit
 import SwiftImage
 import SwiftUI
+import RegexBuilder
 
 class UnscramblingViewController: UIViewController {
 
@@ -17,6 +18,7 @@ class UnscramblingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    var keyValid: Bool = false
     var unscramblingPlaceholderBefore: UIImage = UIImage(named: "scrambledplaceholder")!
 
         var unscramblingPlaceholderAfter: UIImage = UIImage(named: "normalplaceholder")!
@@ -47,15 +49,25 @@ class UnscramblingViewController: UIViewController {
 
 }
 extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")]as? UIImage{
             uploadImage2.image = image
             
             var imc = ImageModificationClass(imageArg: uploadImage2.image!)
             if let inputText = keyField.text {
+                let regexKey = /(\d+\s){12}\d+/
+                if !inputText.contains(regexKey) {
+                    print("Invalid Key")
+                    keyValid = false
+                    self.showAlert(message: "Invalid Key")
+                    return
+                }
+                keyValid = true
                 let codeNumbers = inputText.components(separatedBy: " ")
                 
                 var codeNums: [Int] = []
+                
                 
                 //TODO: check if the decryption key is of the valid (13-number) format and generate an error message if it's not
                 
@@ -103,10 +115,19 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if keyValid == false {
+            self.showAlert(message: "Invalid Key/Missing Image")
+            return
+        }
         if (segue.identifier == "finishedUnscrambling") {
             if let finished = segue.destination as? UnscramblingFinishedViewController {
                 finished.unscrambledResult = unscrambledUIImage
             }
         }
+    }
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

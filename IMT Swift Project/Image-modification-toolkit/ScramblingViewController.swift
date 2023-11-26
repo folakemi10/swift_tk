@@ -71,9 +71,9 @@ extension ScramblingViewController: UIImagePickerControllerDelegate, UINavigatio
 
             safePrimeIndex = Int(safePrimeSlider.value)
             
-            var pxSize = Int(Int(uploadImage.frame.width) / safePrimes[safePrimeIndex])
+            let pxSize = Int(Int(uploadImage.frame.width) / safePrimes[safePrimeIndex])
             
-            var imc = ImageModificationClass(imageArg: uploadImage.image!)
+            let imc = ImageModificationClass(imageArg: uploadImage.image!)
             
             imc.setMosaicPixelSize(pxSize: pxSize)
             
@@ -81,7 +81,7 @@ extension ScramblingViewController: UIImagePickerControllerDelegate, UINavigatio
             
             imc.enhancedMosaicEncrypt()
             
-            var scrambledImage: Image<RGBA<UInt8>> = imc.getCurrentImage()
+            let scrambledImage: Image<RGBA<UInt8>> = imc.getCurrentImage()
             
             
             scrambledUIImage = scrambledImage.uiImage
