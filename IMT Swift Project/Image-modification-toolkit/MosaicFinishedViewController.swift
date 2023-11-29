@@ -19,7 +19,7 @@ class MosaicFinishedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        editedImage.image = mosaicPlaceholderAfter
+        editedImage.image = mosaicResult
        
     }
     @IBAction func downloadClicked(_ sender: Any) {
