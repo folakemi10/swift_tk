@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var imageView: UICollectionView!
     
-    var imageArray = ["1","2","3"]
+    var imageArray = ["m1","m2","m3"]
     var index = 0
     
     override func viewDidLoad() {

@@ -14,6 +14,7 @@ class MosaicFinishedViewController: UIViewController {
 
    
     @IBOutlet weak var editedImage: UIImageView!
+    var mosaicResult: UIImage?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +22,8 @@ class MosaicFinishedViewController: UIViewController {
         editedImage.image = mosaicPlaceholderAfter
        
     }
-   
+    @IBAction func downloadClicked(_ sender: Any) {
+        UIImageWriteToSavedPhotosAlbum (mosaicResult!, nil, nil, nil)
+    }
+    
 }

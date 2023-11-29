@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -541,6 +542,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TmA-Ub-Tzi">
+                                <rect key="frame" x="0.0" y="133" width="393" height="364"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zoo-Fi-O8N">
                                 <rect key="frame" x="76" y="572" width="241" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -549,11 +554,10 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Download Image">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="downloadClicked:" destination="yp7-Gd-Abe" eventType="touchUpInside" id="Toq-W4-Bzi"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TmA-Ub-Tzi">
-                                <rect key="frame" x="0.0" y="133" width="393" height="364"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VYt-sw-nUa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -649,13 +653,6 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I4m-pi-N4M">
-                                <rect key="frame" x="16" y="200" width="361" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Size" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bs0-JN-Jia">
                                 <rect key="frame" x="16" y="242" width="153" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -674,6 +671,9 @@
                                 <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="sizeChanged:" destination="Nrw-5Y-gYU" eventType="editingDidEnd" id="f1a-gL-8v1"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qGt-4E-Ob5">
                                 <rect key="frame" x="16" y="368" width="361" height="34"/>
@@ -681,6 +681,9 @@
                                 <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="heightChanged:" destination="Nrw-5Y-gYU" eventType="editingDidEnd" id="c5H-Ce-sh7"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Width" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FBJ-fD-CFk">
                                 <rect key="frame" x="16" y="413" width="153" height="34"/>
@@ -694,6 +697,9 @@
                                 <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="widthChanged:" destination="Nrw-5Y-gYU" eventType="editingDidEnd" id="elL-Eo-3Wc"/>
+                                </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WMd-WT-qmm">
                                 <rect key="frame" x="63" y="525" width="253" height="128"/>
@@ -720,15 +726,30 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="yp7-Gd-Abe" kind="push" id="cKA-9l-fCW"/>
+                                    <segue destination="yp7-Gd-Abe" kind="push" identifier="finishedMosaic" id="cKA-9l-fCW"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21T-2w-VFw">
+                                <rect key="frame" x="16" y="200" width="361" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <menu key="menu" id="rcW-6Y-toe">
+                                    <children>
+                                        <command title="Item 1" id="peq-hp-UFa"/>
+                                        <command title="Item 2" id="oAd-pz-UzT"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I0B-JB-xmk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="heightValue" destination="qGt-4E-Ob5" id="6mG-b8-7am"/>
+                        <outlet property="imageBank" destination="21T-2w-VFw" id="dZa-ar-fZy"/>
+                        <outlet property="sizeValue" destination="ZXA-l3-GZa" id="bKr-i6-hui"/>
                         <outlet property="uploadImage3" destination="WMd-WT-qmm" id="Cd4-BO-KdZ"/>
+                        <outlet property="widthValue" destination="NuX-dN-ceW" id="il3-82-pIG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9A-5p-x9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
