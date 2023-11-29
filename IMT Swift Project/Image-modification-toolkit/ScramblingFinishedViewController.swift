@@ -27,5 +27,7 @@ class ScramblingFinishedViewController: UIViewController {
     @IBAction func downloadButtonClicked(_ sender: Any) {
         UIImageWriteToSavedPhotosAlbum(displayImage!, nil, nil, nil)
     }
+    @IBAction func saveToProfile(_ sender: Any) {
+    }
     
 }

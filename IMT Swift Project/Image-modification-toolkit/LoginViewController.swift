@@ -19,33 +19,30 @@ class LoginViewController: UIViewController {
                    return
                }
 
-               checkUsernameAndPassword(username: username, password: password)
+               checkUsernameAndPassword(email: username, password: password)
            }
 
-   private func checkUsernameAndPassword(username: String, password: String) {
-       let db = Firestore.firestore()
-       let usersRef = db.collection("users")
-
-       usersRef.whereField("username", isEqualTo: username).getDocuments { (snapshot, error) in
-           if let error = error {
-               print("Error checking username: \(error.localizedDescription)")
-               self.showAlert(message: "Error checking username.")
-           } else if let snapshot = snapshot, !snapshot.isEmpty {
-              
-               _ = snapshot.documents.first!
-
-               if let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") {
-                   if let navigationController = self.navigationController {
-                       print("Login successful.")
-                       navigationController.setViewControllers([homeViewController], animated: true)
-                   }
-               }
-           } else {
-               // Username does not exist
-               self.showAlert(message: "Username does not exist.")
-           }
-       }
-   }
+    private func checkUsernameAndPassword(email: String, password: String) {
+        let db = Firestore.firestore()
+        let usersRef = db.collection("users")
+        
+        Auth.auth().signIn(withEmail: email, password: password){ authResult, error in
+            if let error = error {
+                print("Error login in user: \(error.localizedDescription)")
+                self.showAlert(message: "Error login in user: \(error.localizedDescription)")
+            } else {
+                // User registered successfully!
+                print("User logged in successfully!")
+                
+                if let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") {
+                    if let navigationController = self.navigationController {
+                        print("Login successful.")
+                        navigationController.setViewControllers([homeViewController], animated: true)
+                    }
+                }
+            }
+        }
+    }
 
 
     override func viewDidLoad() {

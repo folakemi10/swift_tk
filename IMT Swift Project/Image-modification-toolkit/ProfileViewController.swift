@@ -63,15 +63,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.dismiss(animated: true, completion: nil)
     }
 
-//    func uploadImageToFirebase(image: UIImage) {
-//        guard let imageData = image.jpegData(compressionQuality: 0.75) else {
-//            print("Failed to convert image to data.")
-//            return
-//        }
-//
-////        let storageRef = Storage.storage().reference().child("profile_images").child(UUID().uuidString)
-////        let metadata = StorageMetadata()
-//      //  metadata.contentType = "image/jpeg"
-//
-//    }
+    func uploadImageToFirebase(image: UIImage) {
+        guard let imageData = image.jpegData(compressionQuality: 0.75) else {
+            print("Failed to convert image to data.")
+            return
+        }
+
+//        let storageRef = Storage.storage().reference().child("profile_images").child(UUID().uuidString)
+//        let metadata = StorageMetadata()
+      //  metadata.contentType = "image/jpeg"
+
+    }
 }
