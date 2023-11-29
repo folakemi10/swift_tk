@@ -14,6 +14,8 @@
 		3F1CF3EF2B04A2150049D6FF /* ScramblingFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CF3EE2B04A2150049D6FF /* ScramblingFinishedViewController.swift */; };
 		3F1CF3F12B04A22A0049D6FF /* UnscramblingFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CF3F02B04A22A0049D6FF /* UnscramblingFinishedViewController.swift */; };
 		3F1CF3F32B04A2420049D6FF /* MosaicFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CF3F22B04A2420049D6FF /* MosaicFinishedViewController.swift */; };
+		3F5BDC762B1794CE005FB28C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BDC752B1794CE005FB28C /* ProfileViewController.swift */; };
+		3FA29F512B1755760065DB43 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA29F502B1755760065DB43 /* RegisterViewController.swift */; };
 		6B5C2AFF2B09801D002FA03E /* SwiftImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6B5C2AFE2B09801D002FA03E /* SwiftImage */; };
 		6DFBEDE22B057F9D001CA0A4 /* Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFBEDE12B057F9D001CA0A4 /* Algorithms.swift */; };
 		9AB48F0C2AFAC88600E4C8FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB48F0B2AFAC88600E4C8FA /* AppDelegate.swift */; };
@@ -52,6 +54,8 @@
 		3F1CF3EE2B04A2150049D6FF /* ScramblingFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScramblingFinishedViewController.swift; sourceTree = "<group>"; };
 		3F1CF3F02B04A22A0049D6FF /* UnscramblingFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnscramblingFinishedViewController.swift; sourceTree = "<group>"; };
 		3F1CF3F22B04A2420049D6FF /* MosaicFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicFinishedViewController.swift; sourceTree = "<group>"; };
+		3F5BDC752B1794CE005FB28C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3FA29F502B1755760065DB43 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6DFBEDE12B057F9D001CA0A4 /* Algorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithms.swift; sourceTree = "<group>"; };
 		9AB48F082AFAC88600E4C8FA /* Image-modification-toolkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image-modification-toolkit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB48F0B2AFAC88600E4C8FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				9AB48F0F2AFAC88600E4C8FA /* ViewController.swift */,
 				3F1CF3EC2B0471DE0049D6FF /* GoogleService-Info.plist */,
 				9AB48F112AFAC88600E4C8FA /* Main.storyboard */,
+				3F5BDC752B1794CE005FB28C /* ProfileViewController.swift */,
+				3FA29F502B1755760065DB43 /* RegisterViewController.swift */,
 				3F1CF3EE2B04A2150049D6FF /* ScramblingFinishedViewController.swift */,
 				3F1CF3F02B04A22A0049D6FF /* UnscramblingFinishedViewController.swift */,
 				3F1CF3F22B04A2420049D6FF /* MosaicFinishedViewController.swift */,
@@ -241,6 +247,8 @@
 				9AB48F282AFAFDE000E4C8FA /* SegmentControlViewController.swift in Sources */,
 				9AB48F0C2AFAC88600E4C8FA /* AppDelegate.swift in Sources */,
 				9AB48F242AFAECDD00E4C8FA /* ScramblingViewController.swift in Sources */,
+				3F5BDC762B1794CE005FB28C /* ProfileViewController.swift in Sources */,
+				3FA29F512B1755760065DB43 /* RegisterViewController.swift in Sources */,
 				9AB48F2C2AFB05E000E4C8FA /* GameSegmentViewController.swift in Sources */,
 				ADE77FA72B0ADE3E007C99EC /* Files.swift in Sources */,
 				9AB48F2E2AFB069600E4C8FA /* PuzzleGameViewController.swift in Sources */,
@@ -331,6 +339,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -384,6 +393,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

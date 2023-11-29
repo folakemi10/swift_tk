@@ -11,31 +11,43 @@ import Firebase
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBOutlet weak var emailTextField: UITextField!
-  
-    @IBAction func login(_ sender: Any) {
-        guard let email = emailTextField.text, !email.isEmpty,
-                      let password = passwordTextField.text, !password.isEmpty else {
-                
-                    showAlert(message: "Please enter a valid email and password.")
-                    return
-                }
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        guard let username = usernameTextField.text, !username.isEmpty,
+                     let password = passwordTextField.text, !password.isEmpty else {
+                   showAlert(message: "Please enter a valid username and password.")
+                   return
+               }
 
-                Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                    if let error = error {
-                       
-                        print("Error registering user: \(error.localizedDescription)")
-                        self.showAlert(message: "Error registering user: \(error.localizedDescription)")
-                    } else {
-                        
-                        print("User registered successfully!")
-                        
-                         self.performSegue(withIdentifier: "Register", sender: self)
-                    }
-                }
-    }
-    
+               checkUsernameAndPassword(username: username, password: password)
+           }
+
+   private func checkUsernameAndPassword(username: String, password: String) {
+       let db = Firestore.firestore()
+       let usersRef = db.collection("users")
+
+       usersRef.whereField("username", isEqualTo: username).getDocuments { (snapshot, error) in
+           if let error = error {
+               print("Error checking username: \(error.localizedDescription)")
+               self.showAlert(message: "Error checking username.")
+           } else if let snapshot = snapshot, !snapshot.isEmpty {
+              
+               _ = snapshot.documents.first!
+
+               if let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") {
+                   if let navigationController = self.navigationController {
+                       print("Login successful.")
+                       navigationController.setViewControllers([homeViewController], animated: true)
+                   }
+               }
+           } else {
+               // Username does not exist
+               self.showAlert(message: "Username does not exist.")
+           }
+       }
+   }
+
+
     override func viewDidLoad() {
            super.viewDidLoad()
            // Do any additional setup after loading the view.
