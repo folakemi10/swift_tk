@@ -8,7 +8,6 @@
 import UIKit
 import SwiftImage
 import SwiftUI
-import RegexBuilder
 
 class UnscramblingViewController: UIViewController {
 
@@ -19,6 +18,7 @@ class UnscramblingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     var keyValid: Bool = false
+
     var unscramblingPlaceholderBefore: UIImage = UIImage(named: "scrambledplaceholder")!
 
         var unscramblingPlaceholderAfter: UIImage = UIImage(named: "normalplaceholder")!
@@ -27,7 +27,13 @@ class UnscramblingViewController: UIViewController {
 
     var unscrambledUIImage: UIImage?
     
+    var inputText: String?
+    
     @IBOutlet weak var keyField: UITextField!
+    
+    @IBAction func editingEnded(_ sender: Any) {
+        inputText = keyField.text
+    }
     
     @IBAction func chooseImage2(_ sender: Any) {
         let vc = UIImagePickerController()
@@ -54,17 +60,18 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")]as? UIImage{
             uploadImage2.image = image
             
+            print("went in here")
             var imc = ImageModificationClass(imageArg: uploadImage2.image!)
-            if let inputText = keyField.text {
+            if (inputText != nil) {
                 let regexKey = /(\d+\s){12}\d+/
-                if !inputText.contains(regexKey) {
+                if !inputText!.contains(regexKey) {
                     print("Invalid Key")
                     keyValid = false
                     self.showAlert(message: "Invalid Key")
                     return
                 }
                 keyValid = true
-                let codeNumbers = inputText.components(separatedBy: " ")
+                let codeNumbers = inputText!.components(separatedBy: " ")
                 
                 var codeNums: [Int] = []
                 
@@ -93,6 +100,12 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
                 var a5 = codeNums[10]
                 var a6 = codeNums[11]
                 
+                
+                if (!codeValid(inputArray: codeNums, spIndex: safePrimeIndex)) {
+                    print("unscrambling unsuccessful")
+                    self.showAlert(message: "Invalid Key")
+                    return
+                }
                 var pxSize = Int(Int(uploadImage2.frame.width) / safePrimes[safePrimeIndex])
                 
                 imc.setMosaicPixelSize(pxSize: pxSize)
@@ -101,6 +114,7 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
                 
                 imc.enhancedMosaicDecrypt(pr1: root1, pr2: root2, pr3: root3, pr4: root4, pr5: root5, pr6: root6, a1: a1, a2: a2, a3: a3, a4: a4, a5: a5, a6: a6, sPrime: safePrimes[safePrimeIndex])
                 
+                print("unscrambling successful")
                 var unscrambledImage = imc.getCurrentImage()
 
                 unscrambledUIImage = unscrambledImage.uiImage
@@ -111,7 +125,50 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         //uploadImage2.image = unscramblingPlaceholderBefore
+        
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func codeValid (inputArray: [Int], spIndex: Int) -> Bool {
+        var status: Bool = true
+        
+        for i in 0..<6 {
+            if (!getProots(spIndex: spIndex).contains(inputArray[i])) {
+                status = false
+            }
+        }
+        for i in 6..<12 {
+            if (!getRelPrimes(spIndex: spIndex).contains(inputArray[i])) {
+                status = false
+            }
+        }
+        
+        return status
+    }
+    
+    func getProots (spIndex: Int) -> [Int]{
+        var safePrime = safePrimes[spIndex]
+        var proots: [Int] = []
+        for i in 0..<(safePrime-1) {
+            proots.append(i)
+        }
+        for i in 0..<safePrime {
+            if let j = proots.firstIndex(of: ((i*i) % safePrime)) {
+                proots.remove(at: j)
+            }
+        }
+        return proots
+    }
+    
+    func getRelPrimes (spIndex: Int) -> [Int] {
+        var safePrime = safePrimes[spIndex]
+        var relPrimes: [Int] = []
+        for i in 0..<(safePrime-1) {
+            if ((i % 2 == 1) && (i != (safePrime - 1) / 2)) {
+                relPrimes.append(i)
+            }
+        }
+        return relPrimes
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
