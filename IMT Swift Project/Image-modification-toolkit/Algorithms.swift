@@ -717,6 +717,24 @@ class ImageModificationClass{
         m.setPixel(x: x2, y: y2, inputimg: temp)
         image = m.getMosaic()
     }
+    
+    public func equivalent (inputimg: Image<RGBA<UInt8>> ) -> Bool {
+        var status: Bool = false
+        let modifiedInputImg = inputimg.resizedTo(width: image.width, height: image.height)
+        var counter: Int = 0
+        for x in 0..<image.width {
+            for y in 0..<image.height {
+                if (modifiedInputImg[x, y] != inputimg[x, y]) {
+                    counter += 1
+                }
+            }
+        }
+        if (counter <= 500) {
+            status = true
+        }
+        
+        return status
+    }
 }
 
 class Mosaic {
