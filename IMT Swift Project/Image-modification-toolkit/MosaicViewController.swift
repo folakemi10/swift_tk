@@ -16,16 +16,37 @@ class MosaicViewController: UIViewController {
   
     @IBOutlet weak var imageBank: UIButton!
     @IBOutlet weak var uploadImage3: UIImageView!
+    
+    var imageSetNumber: Int = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
-        /*let menuClosure = {(action: UIAction) in
-            print("")
+        let menuClosure = {(action: UIAction) in
+            if (action.title == "image set 1") {
+                self.imageSetNumber = 1
+            }
+            else if (action.title == "image set 2") {
+                self.imageSetNumber = 2
+            }
+            else if (action.title == "image set 3") {
+                self.imageSetNumber = 3
+            }
+            else if (action.title == "image set 4") {
+                self.imageSetNumber = 4
+            }
+            
+            print("using image set \(self.imageSetNumber)")
+
         }
         imageBank.menu = UIMenu(children: [
-            UIAction(title: "Emoji Squares", state: .on, handler: menuClosure),
-            UIAction(title: "none", handler: menuClosure)])*/
+            UIAction(title: "image set 1", state: .on, handler: menuClosure),
+            UIAction(title: "image set 2", handler: menuClosure),
+            UIAction(title: "image set 3", handler: menuClosure),
+            UIAction(title: "image set 4", handler: menuClosure)])
+        
+        imageBank.showsMenuAsPrimaryAction = true
+        imageBank.changesSelectionAsPrimaryAction = true
 
         
     }
@@ -102,7 +123,7 @@ extension MosaicViewController: UIImagePickerControllerDelegate, UINavigationCon
     
     func mosaicConvert() {
         let imc = ImageModificationClass(imageArg: uploadImage3.image!)
-        imc.setApproxImages()
+        imc.setApproxImages(bankIndex: imageSetNumber)
         imc.emojify(width: width, height: height, emojiSize: size)
         let mosaic:Image<RGBA<UInt8>> = imc.getCurrentImage()
         mosaicImage = mosaic.uiImage

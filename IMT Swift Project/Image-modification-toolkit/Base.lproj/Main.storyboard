@@ -582,7 +582,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save to Profile"/>
                                 <connections>
-                                    <action selector="saveToProfile:" destination="L7y-iG-etH" eventType="touchUpInside" id="4V0-LN-OpO"/>
+                                    <action selector="saveToProfile:" destination="L7y-iG-etH" eventType="touchUpInside" id="BHT-LV-QzL"/>
                                 </connections>
                             </button>
                         </subviews>
