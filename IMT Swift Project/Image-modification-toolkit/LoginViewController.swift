@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password){ authResult, error in
             if let error = error {
                 print("Error login in user: \(error.localizedDescription)")
-                self.showAlert(message: "Error login in user: \(error.localizedDescription)")
+                self.showAlert(message: "Incorrect email or password")
             } else {
                 // User registered successfully!
                 print("User logged in successfully!")

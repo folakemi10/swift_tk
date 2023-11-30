@@ -6,19 +6,34 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var imageView: UICollectionView!
     
-    var imageArray = ["m1","m2","m3"]
+    var imageArray = ["logo-png","m2","m3"]
     var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoPage), userInfo: nil, repeats: true)
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            if let registerViewController = self.storyboard?.instantiateViewController(withIdentifier: "registerViewController") {
+                if let navigationController = self.navigationController {
+                    navigationController.setViewControllers([registerViewController], animated: true)
+                }
+            }
+            
+        } catch let signOutError as NSError {
+            print("Error signing out: \(signOutError.localizedDescription)")
+        }
     }
     
     @objc func autoPage(){

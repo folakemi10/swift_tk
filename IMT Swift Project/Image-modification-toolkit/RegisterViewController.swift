@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
   
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     
     @IBAction func SignUp(_ sender: Any) {
@@ -78,6 +79,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
            super.viewDidLoad()
            passwordTextField.isSecureTextEntry = true
+        
     }
     private func showAlert(message: String) {
             let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
