@@ -69,24 +69,7 @@ extension ScramblingViewController: UIImagePickerControllerDelegate, UINavigatio
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")]as? UIImage{
             uploadImage.image = image
 
-            safePrimeIndex = Int(safePrimeSlider.value)
             
-            let pxSize = Int(Int(uploadImage.frame.width) / safePrimes[safePrimeIndex])
-            
-            let imc = ImageModificationClass(imageArg: uploadImage.image!)
-            
-            imc.setMosaicPixelSize(pxSize: pxSize)
-            
-            imc.setSafePrimeIndex(spIndex: safePrimeIndex)
-            
-            imc.enhancedMosaicEncrypt()
-            
-            let scrambledImage: Image<RGBA<UInt8>> = imc.getCurrentImage()
-            
-            
-            scrambledUIImage = scrambledImage.uiImage
-            
-            secretCode = imc.getSecretCode()
             
             
         }
@@ -101,9 +84,32 @@ extension ScramblingViewController: UIImagePickerControllerDelegate, UINavigatio
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "finishedScrambling") {
             if let finished = segue.destination as? ScramblingFinishedViewController {
+                
+                scrambleImg()
                 finished.displayImage = scrambledUIImage
                 finished.codeString = secretCode
             }
         }
+    }
+    
+    func scrambleImg() {
+        safePrimeIndex = Int(safePrimeSlider.value)
+        
+        let pxSize = Int(Int(uploadImage.frame.width) / safePrimes[safePrimeIndex])
+        
+        let imc = ImageModificationClass(imageArg: uploadImage.image!)
+        
+        imc.setMosaicPixelSize(pxSize: pxSize)
+        
+        imc.setSafePrimeIndex(spIndex: safePrimeIndex)
+        
+        imc.enhancedMosaicEncrypt()
+        
+        let scrambledImage: Image<RGBA<UInt8>> = imc.getCurrentImage()
+        
+        
+        scrambledUIImage = scrambledImage.uiImage
+        
+        secretCode = imc.getSecretCode()
     }
 }

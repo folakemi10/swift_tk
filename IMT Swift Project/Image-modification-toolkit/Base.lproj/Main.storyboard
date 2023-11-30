@@ -668,6 +668,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingEnded:" destination="x5d-iQ-kcl" eventType="editingDidEnd" id="Tcu-Lw-uY3"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyD-O0-7Zd">
                                 <rect key="frame" x="76" y="675" width="241" height="35"/>
@@ -686,7 +689,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Descrypt">
+                                <buttonConfiguration key="configuration" style="filled" title="Decrypt">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -699,7 +702,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Xo-qF-DQH"/>
                     <connections>
-                        <outlet property="keyField" destination="igY-fz-QHi" id="3KR-jw-NHQ"/>
+                        <outlet property="keyField" destination="igY-fz-QHi" id="3Sd-no-MaD"/>
                         <outlet property="uploadImage2" destination="637-7k-xxt" id="olF-qd-mRI"/>
                     </connections>
                 </viewController>

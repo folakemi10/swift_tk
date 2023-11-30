@@ -61,64 +61,7 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
             uploadImage2.image = image
             
             print("went in here")
-            var imc = ImageModificationClass(imageArg: uploadImage2.image!)
-            if (inputText != nil) {
-                let regexKey = /(\d+\s){12}\d+/
-                if !inputText!.contains(regexKey) {
-                    print("Invalid Key")
-                    keyValid = false
-                    self.showAlert(message: "Invalid Key")
-                    return
-                }
-                keyValid = true
-                let codeNumbers = inputText!.components(separatedBy: " ")
-                
-                var codeNums: [Int] = []
-                
-                
-                //TODO: check if the decryption key is of the valid (13-number) format and generate an error message if it's not
-                
-                for i in 0..<codeNumbers.count {
-                    if let intValue = Int(codeNumbers[i]) {
-                        codeNums.append(intValue)
-                    }
-                }
-                
-                var safePrimeIndex = codeNums[12]
-                
-                var root1 = codeNums[0]
-                var root2 = codeNums[1]
-                var root3 = codeNums[2]
-                var root4 = codeNums[3]
-                var root5 = codeNums[4]
-                var root6 = codeNums[5]
-                
-                var a1 = codeNums[6]
-                var a2 = codeNums[7]
-                var a3 = codeNums[8]
-                var a4 = codeNums[9]
-                var a5 = codeNums[10]
-                var a6 = codeNums[11]
-                
-                
-                if (!codeValid(inputArray: codeNums, spIndex: safePrimeIndex)) {
-                    print("unscrambling unsuccessful")
-                    self.showAlert(message: "Invalid Key")
-                    return
-                }
-                var pxSize = Int(Int(uploadImage2.frame.width) / safePrimes[safePrimeIndex])
-                
-                imc.setMosaicPixelSize(pxSize: pxSize)
-                
-                imc.setSafePrimeIndex(spIndex: safePrimeIndex)
-                
-                imc.enhancedMosaicDecrypt(pr1: root1, pr2: root2, pr3: root3, pr4: root4, pr5: root5, pr6: root6, a1: a1, a2: a2, a3: a3, a4: a4, a5: a5, a6: a6, sPrime: safePrimes[safePrimeIndex])
-                
-                print("unscrambling successful")
-                var unscrambledImage = imc.getCurrentImage()
-
-                unscrambledUIImage = unscrambledImage.uiImage
-            }
+            
         }
         //uploadImage2.image = unscramblingPlaceholderBefore
         picker.dismiss(animated: true, completion: nil)
@@ -172,6 +115,7 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        unscrambleImg()
         if keyValid == false {
             self.showAlert(message: "Invalid Key/Missing Image")
             return
@@ -180,6 +124,69 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
             if let finished = segue.destination as? UnscramblingFinishedViewController {
                 finished.unscrambledResult = unscrambledUIImage
             }
+        }
+    }
+    func unscrambleImg() {
+        var imc = ImageModificationClass(imageArg: uploadImage2.image!)
+        print("idk idk")
+
+        print("is the input text nil? \(inputText == nil)")
+        if (inputText != nil) {
+            let regexKey = /(\d+\s){12}\d+/
+            if !inputText!.contains(regexKey) {
+                print("Invalid Key")
+                keyValid = false
+                self.showAlert(message: "Invalid Key")
+                return
+            }
+            
+            print("the key is now valid!")
+            keyValid = true
+            let codeNumbers = inputText!.components(separatedBy: " ")
+            
+            var codeNums: [Int] = []
+            
+                    
+            for i in 0..<codeNumbers.count {
+                if let intValue = Int(codeNumbers[i]) {
+                    codeNums.append(intValue)
+                }
+            }
+            
+            var safePrimeIndex = codeNums[12]
+            
+            var root1 = codeNums[0]
+            var root2 = codeNums[1]
+            var root3 = codeNums[2]
+            var root4 = codeNums[3]
+            var root5 = codeNums[4]
+            var root6 = codeNums[5]
+            
+            var a1 = codeNums[6]
+            var a2 = codeNums[7]
+            var a3 = codeNums[8]
+            var a4 = codeNums[9]
+            var a5 = codeNums[10]
+            var a6 = codeNums[11]
+            
+            
+            if (!codeValid(inputArray: codeNums, spIndex: safePrimeIndex)) {
+                print("unscrambling unsuccessful")
+                self.showAlert(message: "Invalid Key")
+                return
+            }
+            var pxSize = Int(Int(uploadImage2.frame.width) / safePrimes[safePrimeIndex])
+            
+            imc.setMosaicPixelSize(pxSize: pxSize)
+            
+            imc.setSafePrimeIndex(spIndex: safePrimeIndex)
+            
+            imc.enhancedMosaicDecrypt(pr1: root1, pr2: root2, pr3: root3, pr4: root4, pr5: root5, pr6: root6, a1: a1, a2: a2, a3: a3, a4: a4, a5: a5, a6: a6, sPrime: safePrimes[safePrimeIndex])
+            
+            print("unscrambling successful")
+            var unscrambledImage = imc.getCurrentImage()
+
+            unscrambledUIImage = unscrambledImage.uiImage
         }
     }
     private func showAlert(message: String) {

@@ -82,12 +82,7 @@ extension MosaicViewController: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")]as? UIImage{
             uploadImage3.image = image
-            let imc = ImageModificationClass(imageArg: uploadImage3.image!)
-            imc.setApproxImages()
-            imc.emojify(width: width, height: height, emojiSize: size)
-            let mosaic:Image<RGBA<UInt8>> = imc.getCurrentImage()
-            mosaicImage = mosaic.uiImage
-
+            
         }
 //        uploadImage3.image = mosaicPlaceholderBefore;
         picker.dismiss(animated: true, completion: nil)
@@ -99,9 +94,19 @@ extension MosaicViewController: UIImagePickerControllerDelegate, UINavigationCon
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "finishedMosaic") {
             if let finished = segue.destination as? MosaicFinishedViewController {
+                mosaicConvert()
                 finished.mosaicResult = mosaicImage
             }
         }
+    }
+    
+    func mosaicConvert() {
+        let imc = ImageModificationClass(imageArg: uploadImage3.image!)
+        imc.setApproxImages()
+        imc.emojify(width: width, height: height, emojiSize: size)
+        let mosaic:Image<RGBA<UInt8>> = imc.getCurrentImage()
+        mosaicImage = mosaic.uiImage
+
     }
 }
 

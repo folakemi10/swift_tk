@@ -61,12 +61,12 @@ class ImageModificationClass{
         
         //originally we were going add every image into the approxImages array, but the algorithm went way too slow
         
-        //hence, we're taking a sample of 12.5% of the images
+        //hence, we're taking a sample of 5% of the images
         
         var filterIndex: Int = 0
         for imageName in imageNames {
             if let img = UIImage(named: imageName) {
-                if (filterIndex % 8 == 0) {
+                if (filterIndex % 7 == 0) {
                     approxImages.append(Image<RGBA<UInt8>>(uiImage: img))
                 }
             }
