@@ -12,6 +12,7 @@ import SwiftUI
 
 class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var bestTimeField: UITextField!
     var secondsElapsed: Double = 0.0
     @IBOutlet weak var timeElapsed: UITextField!
     @IBOutlet weak var puzzleImage: UIImageView!
@@ -19,16 +20,19 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
     var scrambledImage: UIImage?
     var modulo2: Int = 0
     var dimension: Int = 0
+    var bestTime: Double = 999999.99
+    var original: UIImage?
     
     var lastX: Int = 0
     var safePrimeIndex: Int = 3
     var lastY: Int = 0
     
+    var timer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
         puzzleImage.image = scrambledImage
 
-        let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateStatus), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateStatus), userInfo: nil, repeats: true)
         
         timeElapsed.isUserInteractionEnabled = false
         
@@ -69,6 +73,9 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
                     imc.swapPixels(x1: lastX, y1: lastY, x2: xImgCoord, y2: yImgCoord)
                     scrambledImage = imc.getCurrentImage().uiImage
                     puzzleImage.image = scrambledImage
+                    
+                    //checkIfSolved(imc: imc)
+                    
                 }
                 
                 
@@ -81,7 +88,28 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
         
         
         
+        
 
+    }
+    func checkIfSolved(imc: ImageModificationClass) {
+        if (imc.equivalent(inputimg: Image<RGBA<UInt8>> (uiImage: original!))) {
+            stopTimer()
+            if (secondsElapsed < bestTime) {
+                bestTime = secondsElapsed
+            }
+            
+            if (bestTime.truncatingRemainder(dividingBy: 60.0) < 9.99999) {
+                bestTimeField.text = String(format: "\(Int(bestTime / 60.0)):0%.1f", bestTime.truncatingRemainder(dividingBy: 60.0))
+            }
+            else {
+                bestTimeField.text = String(format: "\(Int(bestTime / 60.0)):%.1f", bestTime.truncatingRemainder(dividingBy: 60.0))
+            }
+            
+        }
+    }
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
     
    
