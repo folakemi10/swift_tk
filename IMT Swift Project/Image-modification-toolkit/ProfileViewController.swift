@@ -9,6 +9,7 @@ import FirebaseStorage
 
 class ProfileViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
     @IBOutlet weak var profilePicture: UIImageView!
 //    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
