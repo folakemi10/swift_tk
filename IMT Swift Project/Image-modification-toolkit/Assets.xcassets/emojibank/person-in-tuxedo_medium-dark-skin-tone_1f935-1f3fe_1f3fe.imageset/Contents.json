@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "person-in-tuxedo_medium-dark-skin-tone_1f935-1f3fe_1f3fe.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
