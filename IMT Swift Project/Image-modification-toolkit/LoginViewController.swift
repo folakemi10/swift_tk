@@ -10,6 +10,7 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
+    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBAction func loginButtonTapped(_ sender: Any) {

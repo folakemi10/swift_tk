@@ -9,6 +9,7 @@ import Firebase
 
 class RegisterViewController: UIViewController {
     
+
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!

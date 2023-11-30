@@ -11,6 +11,7 @@ import Firebase
 
 class GuessIndividualViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    
     @IBOutlet weak var YourTime: UITextField!
     @IBOutlet weak var bestTime: UITextField!
     var secondsElapsed: Double = 0.0
