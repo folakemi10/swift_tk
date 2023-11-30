@@ -17,6 +17,7 @@
 		3F5BDC762B1794CE005FB28C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BDC752B1794CE005FB28C /* ProfileViewController.swift */; };
 		3F7B604F2B17E256004D5067 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F7B604E2B17E256004D5067 /* FirebaseStorage */; };
 		3FA29F512B1755760065DB43 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA29F502B1755760065DB43 /* RegisterViewController.swift */; };
+		3FF3ADA52B1887150036C9D5 /* PuzzleInnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3ADA42B1887150036C9D5 /* PuzzleInnerViewController.swift */; };
 		6B5C2AFF2B09801D002FA03E /* SwiftImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6B5C2AFE2B09801D002FA03E /* SwiftImage */; };
 		6DFBEDE22B057F9D001CA0A4 /* Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFBEDE12B057F9D001CA0A4 /* Algorithms.swift */; };
 		9AB48F0C2AFAC88600E4C8FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB48F0B2AFAC88600E4C8FA /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 		3F1CF3F22B04A2420049D6FF /* MosaicFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicFinishedViewController.swift; sourceTree = "<group>"; };
 		3F5BDC752B1794CE005FB28C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3FA29F502B1755760065DB43 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3FF3ADA42B1887150036C9D5 /* PuzzleInnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleInnerViewController.swift; sourceTree = "<group>"; };
 		6DFBEDE12B057F9D001CA0A4 /* Algorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithms.swift; sourceTree = "<group>"; };
 		9AB48F082AFAC88600E4C8FA /* Image-modification-toolkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image-modification-toolkit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB48F0B2AFAC88600E4C8FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				9AB48F0F2AFAC88600E4C8FA /* ViewController.swift */,
 				3F1CF3EC2B0471DE0049D6FF /* GoogleService-Info.plist */,
 				9AB48F112AFAC88600E4C8FA /* Main.storyboard */,
+				3FF3ADA42B1887150036C9D5 /* PuzzleInnerViewController.swift */,
 				3F5BDC752B1794CE005FB28C /* ProfileViewController.swift */,
 				3FA29F502B1755760065DB43 /* RegisterViewController.swift */,
 				3F1CF3EE2B04A2150049D6FF /* ScramblingFinishedViewController.swift */,
@@ -260,6 +263,7 @@
 				3F1CF3F12B04A22A0049D6FF /* UnscramblingFinishedViewController.swift in Sources */,
 				9AB48F262AFAF19E00E4C8FA /* UnscramblingViewController.swift in Sources */,
 				9AB48F0E2AFAC88600E4C8FA /* SceneDelegate.swift in Sources */,
+				3FF3ADA52B1887150036C9D5 /* PuzzleInnerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

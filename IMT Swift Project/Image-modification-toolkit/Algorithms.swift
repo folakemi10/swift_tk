@@ -708,6 +708,15 @@ class ImageModificationClass{
         
         image = unscrambledImage8
     }
+    
+    public func swapPixels (x1: Int, y1: Int, x2: Int, y2: Int) {
+        image = rawImage
+        var m = Mosaic(spd: safePrime - 1, ps: pixelSize, inputimg: image)
+        var temp: Image<RGBA<UInt8>> = m.getPixel(xCoord: x1, yCoord: y1)
+        m.setPixel(x: x1, y: y1, inputimg: m.getPixel(xCoord: x2, yCoord: y2))
+        m.setPixel(x: x2, y: y2, inputimg: temp)
+        image = m.getMosaic()
+    }
 }
 
 class Mosaic {

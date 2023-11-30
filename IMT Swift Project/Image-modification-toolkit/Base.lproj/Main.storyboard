@@ -232,10 +232,10 @@
             </objects>
             <point key="canvasLocation" x="4688" y="4"/>
         </scene>
-        <!--View Controller-->
+        <!--Puzzle Inner View Controller-->
         <scene sceneID="Tzp-uo-Hq9">
             <objects>
-                <viewController id="WWl-Ly-i84" sceneMemberID="viewController">
+                <viewController id="WWl-Ly-i84" customClass="PuzzleInnerViewController" customModule="Image_modification_toolkit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HdY-qc-VwF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -270,14 +270,14 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10:00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9H-Tf-UOo">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00:00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9H-Tf-UOo">
                                 <rect key="frame" x="177" y="210" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdS-DW-Xd1">
-                                <rect key="frame" x="76" y="357" width="240" height="128"/>
+                                <rect key="frame" x="22" y="285" width="355" height="336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -285,10 +285,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="4MF-5u-BRi"/>
+                    <connections>
+                        <outlet property="puzzleImage" destination="WdS-DW-Xd1" id="QhV-We-Rpf"/>
+                        <outlet property="timeElapsed" destination="U9H-Tf-UOo" id="PUR-NL-nFd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SY0-Q3-bkj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="-1468"/>
+            <point key="canvasLocation" x="1026.7175572519084" y="-1468.3098591549297"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="MzP-Oh-i0E">
@@ -393,20 +397,29 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="WWl-Ly-i84" kind="push" id="4M5-Qt-O13"/>
+                                    <segue destination="WWl-Ly-i84" kind="push" identifier="toPuzzle" id="4M5-Qt-O13"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ej1-MU-MrO">
+                                <rect key="frame" x="84" y="730" width="224" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="A41-D3-iad">
+                                <rect key="frame" x="84" y="730" width="224" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3T7-7I-2Qg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="numPieces" destination="A41-D3-iad" id="EK0-JS-fus"/>
                         <outlet property="uploadImage4" destination="SIE-lb-YRF" id="Syc-Hy-e4R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8p9-Pr-R9A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="-782"/>
+            <point key="canvasLocation" x="1026.7175572519084" y="-782.3943661971831"/>
         </scene>
         <!--Guess Game View Controller-->
         <scene sceneID="dF8-Mq-LSG">
