@@ -14,7 +14,6 @@ class GuessGameViewController: UIViewController {
     var categorieName: String?
     var index: Int?
     
-    
     @IBAction func flower(_ sender: Any) {
         categorieName = "Disney Princess"
         index = 3

@@ -30,7 +30,6 @@ class GuessIndividualViewController: UIViewController, UIGestureRecognizerDelega
         print("uo000", category?.category ?? 0)
         loadNextImage()
         fetchAndDisplayBestTime()
-        
     }
     
     @objc func updateStatus () {

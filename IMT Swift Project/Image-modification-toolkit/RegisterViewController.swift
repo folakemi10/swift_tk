@@ -26,6 +26,7 @@ class RegisterViewController: UIViewController {
                   return
               }
        
+        
         checkUsernameExistsForSignup(username: username) { exists in
             if exists {
              

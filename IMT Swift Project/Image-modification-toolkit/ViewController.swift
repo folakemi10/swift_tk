@@ -45,7 +45,6 @@ class ViewController: UIViewController {
         pageControl.numberOfPages = imageArray.count
         pageControl.currentPage = index
         imageView.scrollToItem(at: IndexPath(item: index, section: 0), at: .right, animated: true)
-        
     }
 }
 

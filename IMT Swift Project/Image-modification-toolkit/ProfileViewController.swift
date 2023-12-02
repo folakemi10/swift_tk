@@ -18,7 +18,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var nameLabel: UILabel!
     var imageCache = NSCache<NSString, UIImage>()
 
-
     var images = [ImageModel]()
 
     override func viewDidLoad() {

@@ -17,8 +17,6 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var timeElapsed: UITextField!
     @IBOutlet weak var puzzleImage: UIImageView!
     
-    
-    
     var scrambledImage: UIImage?
     var modulo2: Int = 0
     var dimension: Int = 0

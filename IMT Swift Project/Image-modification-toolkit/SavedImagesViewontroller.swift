@@ -27,5 +27,6 @@ class SavedImagesViewController: UIViewController {
     @IBAction func DownloadImge(_ sender: Any) {
         UIImageWriteToSavedPhotosAlbum( savedImage.image!, nil, nil, nil)
     }
+    
 
 }
