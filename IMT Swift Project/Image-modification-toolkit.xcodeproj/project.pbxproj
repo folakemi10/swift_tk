@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0BE0682B1B3DB200F5E99B /* SavedImagesViewontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BE0672B1B3DB200F5E99B /* SavedImagesViewontroller.swift */; };
 		3F1CF3E62B046A680049D6FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CF3E52B046A680049D6FF /* LoginViewController.swift */; };
 		3F1CF3E92B046F6F0049D6FF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3F1CF3E82B046F6F0049D6FF /* FirebaseAuth */; };
 		3F1CF3EB2B046F6F0049D6FF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F1CF3EA2B046F6F0049D6FF /* FirebaseFirestore */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F0BE0672B1B3DB200F5E99B /* SavedImagesViewontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedImagesViewontroller.swift; sourceTree = "<group>"; };
 		3F1CF3E52B046A680049D6FF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F1CF3EC2B0471DE0049D6FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3F1CF3EE2B04A2150049D6FF /* ScramblingFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScramblingFinishedViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				9AB48F0F2AFAC88600E4C8FA /* ViewController.swift */,
 				3F1CF3EC2B0471DE0049D6FF /* GoogleService-Info.plist */,
 				9AB48F112AFAC88600E4C8FA /* Main.storyboard */,
+				3F0BE0672B1B3DB200F5E99B /* SavedImagesViewontroller.swift */,
 				3FB0803F2B18F43000B51B90 /* GuessIndividualViewController.swift */,
 				3FF3ADA42B1887150036C9D5 /* PuzzleInnerViewController.swift */,
 				3F5BDC752B1794CE005FB28C /* ProfileViewController.swift */,
@@ -255,6 +258,7 @@
 				6DFBEDE22B057F9D001CA0A4 /* Algorithms.swift in Sources */,
 				9AB48F282AFAFDE000E4C8FA /* SegmentControlViewController.swift in Sources */,
 				9AB48F0C2AFAC88600E4C8FA /* AppDelegate.swift in Sources */,
+				3F0BE0682B1B3DB200F5E99B /* SavedImagesViewontroller.swift in Sources */,
 				9AB48F242AFAECDD00E4C8FA /* ScramblingViewController.swift in Sources */,
 				3F5BDC762B1794CE005FB28C /* ProfileViewController.swift in Sources */,
 				3FA29F512B1755760065DB43 /* RegisterViewController.swift in Sources */,

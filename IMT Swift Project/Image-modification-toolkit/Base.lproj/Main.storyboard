@@ -162,12 +162,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cowboy-hat-face_1f920" translatesAutoresizingMaskIntoConstraints="NO" id="LLG-ft-OnM">
-                                <rect key="frame" x="137" y="90" width="125" height="131"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LLG-ft-OnM">
+                                <rect key="frame" x="147" y="109" width="105" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D50-US-NzT">
-                                <rect key="frame" x="217" y="191" width="29" height="30"/>
+                                <rect key="frame" x="217" y="190" width="24" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="pencil" catalog="system" cornerStyle="capsule"/>
@@ -175,8 +176,15 @@
                                     <action selector="editButton:" destination="txp-KS-oh9" eventType="touchUpInside" id="FUC-yh-2Wh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8V-9N-8gG">
+                                <rect key="frame" x="81" y="220" width="236" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Past Projects" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NeD-bF-IaL">
-                                <rect key="frame" x="56" y="336" width="141" height="64.333333333333314"/>
+                                <rect key="frame" x="38" y="267" width="141" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -186,13 +194,11 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8V-9N-8gG">
-                                <rect key="frame" x="78" y="244" width="236" height="21"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="b8u-z0-I4m">
+                                <rect key="frame" x="38" y="306" width="323" height="490"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ole-py-WiI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -201,11 +207,69 @@
                     <connections>
                         <outlet property="nameLabel" destination="k8V-9N-8gG" id="y2a-6Q-QIq"/>
                         <outlet property="profilePicture" destination="LLG-ft-OnM" id="uDk-uA-1xF"/>
+                        <outlet property="tableView" destination="b8u-z0-I4m" id="C4R-Rs-zLo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5y-wW-tyt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3881.679389312977" y="-730.28169014084506"/>
+        </scene>
+        <!--Saved Images View Controller-->
+        <scene sceneID="nqx-o1-K6b">
+            <objects>
+                <viewController storyboardIdentifier="SavedImagesViewController" id="tO3-aT-Lg1" customClass="SavedImagesViewController" customModule="Image_modification_toolkit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G8N-fW-ghA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Decryption key:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="395-Nh-zf7">
+                                <rect key="frame" x="135" y="173" width="123" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZ3-Ki-AdK">
+                                <rect key="frame" x="85" y="201" width="223" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zm-tl-PxC">
+                                <rect key="frame" x="48" y="544" width="185" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.43203521560000002" green="0.43203521560000002" blue="0.43203521560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GpQ-KT-hKc">
+                                <rect key="frame" x="48" y="266" width="308" height="270"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PT-EM-Pzy">
+                                <rect key="frame" x="135" y="599" width="151" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Download Image"/>
+                                <connections>
+                                    <action selector="DownloadImge:" destination="tO3-aT-Lg1" eventType="touchUpInside" id="C3z-9v-lqt"/>
+                                    <action selector="DownloadImge:" destination="HEH-UF-XZ4" eventType="touchUpInside" id="O4a-sQ-VBx"/>
+                                    <action selector="DownloadImge:" destination="Gxz-CF-QzQ" eventType="touchUpInside" id="PHX-4G-nH1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8R8-qN-3Tc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateSaved" destination="9Zm-tl-PxC" id="Gfa-1X-DJS"/>
+                        <outlet property="encryptionCodeLabel" destination="KZ3-Ki-AdK" id="RFH-KR-x5L"/>
+                        <outlet property="savedImage" destination="GpQ-KT-hKc" id="Ist-6n-EZr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XiC-iM-p6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4634.3511450381675" y="-1092.2535211267607"/>
         </scene>
         <!--Game Segment View Controller-->
         <scene sceneID="kVj-1s-63C">
@@ -236,6 +300,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1j-pf-rkM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Gxz-CF-QzQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4688" y="4"/>
         </scene>
@@ -355,7 +420,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Guess"/>
                                 <connections>
-                                    <action selector="Guess:" destination="GAp-hn-snV" eventType="touchUpInside" id="Iy8-Pc-mfb"/>
+                                    <action selector="guessButtonTapped:" destination="GAp-hn-snV" eventType="touchUpInside" id="l68-uc-9Gw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -440,88 +505,74 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMT-qI-xiz">
-                                <rect key="frame" x="29" y="144" width="334" height="1309"/>
+                                <rect key="frame" x="54" y="148" width="285" height="738"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monalisa" translatesAutoresizingMaskIntoConstraints="NO" id="IJv-SY-u8C">
-                                        <rect key="frame" x="65" y="51" width="176" height="146"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8a-VH-fTd">
-                                        <rect key="frame" x="79" y="191" width="149" height="36"/>
+                                        <rect key="frame" x="73" y="115" width="141" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <size key="titleShadowOffset" width="2" height="2"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="start">
+                                        <buttonConfiguration key="configuration" style="filled" title="Paintings">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="monaLisa:" destination="eMU-EQ-SRH" eventType="touchUpInside" id="mLV-3o-cLW"/>
-                                            <segue destination="GAp-hn-snV" kind="push" identifier="monalisa" id="5yU-BZ-q82"/>
+                                            <segue destination="GAp-hn-snV" kind="push" identifier="Paintings" id="5yU-BZ-q82"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="starrynight" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-fg-YnT">
-                                        <rect key="frame" x="65" y="533" width="176" height="164"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Monuments" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-fg-YnT">
+                                        <rect key="frame" x="84" y="353" width="124" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIa-44-1r3">
-                                        <rect key="frame" x="65" y="662" width="176" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EK-xj-318">
+                                        <rect key="frame" x="81" y="287" width="127" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="start"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Animals"/>
                                         <connections>
-                                            <action selector="starryNight:" destination="eMU-EQ-SRH" eventType="touchUpInside" id="Ofo-Ak-WCI"/>
-                                            <segue destination="GAp-hn-snV" kind="push" identifier="starrynight" id="O5p-6W-Et4"/>
+                                            <action selector="dog:" destination="eMU-EQ-SRH" eventType="touchUpInside" id="Tdb-3S-Gdg"/>
+                                            <segue destination="GAp-hn-snV" kind="push" identifier="Animals" id="OEx-AL-hAC"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flowers" translatesAutoresizingMaskIntoConstraints="NO" id="gZb-ql-dzB">
-                                        <rect key="frame" x="65" y="751" width="176" height="128"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Animals" translatesAutoresizingMaskIntoConstraints="NO" id="Uye-xg-SMY">
+                                        <rect key="frame" x="75" y="199" width="139" height="93"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Paintings" translatesAutoresizingMaskIntoConstraints="NO" id="IJv-SY-u8C">
+                                        <rect key="frame" x="73" y="33" width="141" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Disney" translatesAutoresizingMaskIntoConstraints="NO" id="gZb-ql-dzB">
+                                        <rect key="frame" x="54" y="521" width="176" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hF-pV-lDM">
-                                        <rect key="frame" x="65" y="876" width="176" height="35"/>
+                                        <rect key="frame" x="84" y="622" width="115" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="start"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Disney"/>
                                         <connections>
                                             <action selector="flower:" destination="eMU-EQ-SRH" eventType="touchUpInside" id="ivk-LV-ntY"/>
-                                            <segue destination="GAp-hn-snV" kind="push" identifier="flowers" id="r8n-yF-1oa"/>
+                                            <segue destination="GAp-hn-snV" kind="push" identifier="Disney Princess" id="r8n-yF-1oa"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monarch" translatesAutoresizingMaskIntoConstraints="NO" id="jSF-LQ-cLy">
-                                        <rect key="frame" x="65" y="971" width="176" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoO-B3-o5w">
-                                        <rect key="frame" x="65" y="1095" width="176" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIa-44-1r3">
+                                        <rect key="frame" x="83" y="445" width="125" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="start"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Monuments"/>
                                         <connections>
-                                            <action selector="monarch:" destination="eMU-EQ-SRH" eventType="touchUpInside" id="m0j-15-xxU"/>
-                                            <segue destination="GAp-hn-snV" kind="push" identifier="monarch" id="fUT-R2-uB7"/>
+                                            <action selector="monuments:" destination="eMU-EQ-SRH" eventType="touchUpInside" id="vRD-0f-Q39"/>
+                                            <segue destination="GAp-hn-snV" kind="push" identifier="Monuments" id="TRo-LJ-Raj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EK-xj-318">
-                                        <rect key="frame" x="79" y="430" width="149" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="start"/>
-                                        <connections>
-                                            <action selector="dog:" destination="eMU-EQ-SRH" eventType="touchUpInside" id="Tdb-3S-Gdg"/>
-                                            <segue destination="GAp-hn-snV" kind="push" identifier="dog" id="OEx-AL-hAC"/>
-                                        </connections>
-                                    </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="Uye-xg-SMY">
-                                        <rect key="frame" x="65" y="287" width="176" height="144"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="qG6-Zn-X7B"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Wb2-Sa-IAX"/>
                             </scrollView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Chose a puzzle" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N67-ha-qOO">
-                                <rect key="frame" x="45" y="99" width="242" height="64"/>
+                                <rect key="frame" x="125" y="91" width="143" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -535,6 +586,9 @@
                         <viewLayoutGuide key="safeArea" id="IJ2-Xk-TOc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="qMT-qI-xiz" id="k5Z-PI-zpT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkI-ys-bLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1144,18 +1198,17 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r8n-yF-1oa"/>
+        <segue reference="TRo-LJ-Raj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="5464" height="8192"/>
-        <image name="cowboy-hat-face_1f920" width="160" height="160"/>
-        <image name="dog" width="350" height="350"/>
-        <image name="flowers" width="374" height="374"/>
+        <image name="Animals" width="259" height="194"/>
+        <image name="Disney" width="200" height="200"/>
+        <image name="Monuments" width="1200" height="900"/>
+        <image name="Paintings" width="750" height="422"/>
         <image name="logo" width="4000" height="3858"/>
-        <image name="monalisa" width="350" height="350"/>
-        <image name="monarch" width="374" height="374"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="starrynight" width="374" height="374"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

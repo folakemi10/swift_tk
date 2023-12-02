@@ -33,7 +33,6 @@ class ScramblingFinishedViewController: UIViewController {
         }
         
         let storageRef = FirebaseStorage.Storage.storage().reference()
-        let database = Firestore.firestore()
         let imageUUID = UUID().uuidString
         let userImagesRef = storageRef.child("user_images/\(uid)/\(imageUUID).jpg")
         if let imageData = unscrambledResult.jpegData(compressionQuality: 0.8) {
@@ -58,11 +57,20 @@ class ScramblingFinishedViewController: UIViewController {
         guard let user = Auth.auth().currentUser else {
             return
         }
+
         let databaseRef = Firestore.firestore().collection("images")
+
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let formattedDate = dateFormatter.string(from: currentDate)
+
         let data: [String: Any] = [
             "userID": user.uid,
             "imageID": imageID,
-            "downloadURL": downloadURL
+            "downloadURL": downloadURL,
+            "encryptionCode" : codeString,
+            "timestamp": formattedDate
         ]
 
         databaseRef.document(imageID).setData(data) { error in
@@ -73,5 +81,6 @@ class ScramblingFinishedViewController: UIViewController {
             }
         }
     }
+
 
 }

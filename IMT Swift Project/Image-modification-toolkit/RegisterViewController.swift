@@ -25,10 +25,10 @@ class RegisterViewController: UIViewController {
                   showAlert(message: "Please enter a valid email, password, and username.")
                   return
               }
-        // Check if username already exists
+       
         checkUsernameExistsForSignup(username: username) { exists in
             if exists {
-                // Username already exists, show an alert
+             
                 self.showAlert(message: "Username already exists. Please choose a different username.")
             } else {
                 Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -36,10 +36,10 @@ class RegisterViewController: UIViewController {
                         print("Error registering user: \(error.localizedDescription)")
                         self.showAlert(message: "Error registering user: \(error.localizedDescription)")
                     } else {
-                        // User registered successfully!
+                        
                         print("User registered successfully!")
                         
-                        // Update Firestore with username and UID
+                      
                         if let uid = Auth.auth().currentUser?.uid {
                             self.updateFirestoreWithUsernameAndUID(uid: uid, username: username)
                             if let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") {
@@ -69,10 +69,10 @@ class RegisterViewController: UIViewController {
                 print("Error checking username: \(error.localizedDescription)")
                 completion(false)
             } else if let snapshot = snapshot, !snapshot.isEmpty {
-                // Username exists
+                
                 completion(true)
             } else {
-                // Username does not exist
+              
                 completion(false)
             }
         }

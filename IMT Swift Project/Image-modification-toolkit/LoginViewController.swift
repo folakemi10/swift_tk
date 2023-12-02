@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
                 print("Error login in user: \(error.localizedDescription)")
                 self.showAlert(message: "Incorrect email or password")
             } else {
-                // User registered successfully!
+                
                 print("User logged in successfully!")
                 
                 if let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeViewController") {
@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
            super.viewDidLoad()
-           // Do any additional setup after loading the view.
+           passwordTextField.isSecureTextEntry = true
        }
     private func showAlert(message: String) {
             let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
