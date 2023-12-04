@@ -9,8 +9,6 @@ import UIKit
 
 class GuessGameViewController: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    
     var categorieName: String?
     var index: Int?
     
@@ -67,12 +65,6 @@ class GuessGameViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
-            setupScrollView()
-        }
-
-        func setupScrollView() {
-            scrollView.contentSize = CGSize(width: scrollView.frame.width, height: CGFloat(categories.count) * 100.0)
-            
         }
 
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
