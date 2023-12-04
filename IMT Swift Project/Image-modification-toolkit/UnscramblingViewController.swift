@@ -90,7 +90,7 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
     }
     
     func getProots (spIndex: Int) -> [Int]{
-        var safePrime = safePrimes[spIndex]
+        let safePrime = safePrimes[spIndex]
         var proots: [Int] = []
         for i in 0..<(safePrime-1) {
             proots.append(i)
@@ -104,7 +104,7 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
     }
     
     func getRelPrimes (spIndex: Int) -> [Int] {
-        var safePrime = safePrimes[spIndex]
+        let safePrime = safePrimes[spIndex]
         var relPrimes: [Int] = []
         for i in 0..<(safePrime-1) {
             if ((i % 2 == 1) && (i != (safePrime - 1) / 2)) {
@@ -127,7 +127,7 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
         }
     }
     func unscrambleImg() {
-        var imc = ImageModificationClass(imageArg: uploadImage2.image!)
+        let imc = ImageModificationClass(imageArg: uploadImage2.image!)
         print("idk idk")
 
         print("is the input text nil? \(inputText == nil)")
@@ -153,21 +153,21 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
                 }
             }
             
-            var safePrimeIndex = codeNums[12]
+            let safePrimeIndex = codeNums[12]
             
-            var root1 = codeNums[0]
-            var root2 = codeNums[1]
-            var root3 = codeNums[2]
-            var root4 = codeNums[3]
-            var root5 = codeNums[4]
-            var root6 = codeNums[5]
+            let root1 = codeNums[0]
+            let root2 = codeNums[1]
+            let root3 = codeNums[2]
+            let root4 = codeNums[3]
+            let root5 = codeNums[4]
+            let root6 = codeNums[5]
             
-            var a1 = codeNums[6]
-            var a2 = codeNums[7]
-            var a3 = codeNums[8]
-            var a4 = codeNums[9]
-            var a5 = codeNums[10]
-            var a6 = codeNums[11]
+            let a1 = codeNums[6]
+            let a2 = codeNums[7]
+            let a3 = codeNums[8]
+            let a4 = codeNums[9]
+            let a5 = codeNums[10]
+            let a6 = codeNums[11]
             
             
             if (!codeValid(inputArray: codeNums, spIndex: safePrimeIndex)) {
@@ -175,7 +175,7 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
                 self.showAlert(message: "Invalid Key")
                 return
             }
-            var pxSize = Int(Int(uploadImage2.frame.width) / safePrimes[safePrimeIndex])
+            let pxSize = Int(Int(uploadImage2.frame.width) / safePrimes[safePrimeIndex])
             
             imc.setMosaicPixelSize(pxSize: pxSize)
             
@@ -184,7 +184,7 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
             imc.enhancedMosaicDecrypt(pr1: root1, pr2: root2, pr3: root3, pr4: root4, pr5: root5, pr6: root6, a1: a1, a2: a2, a3: a3, a4: a4, a5: a5, a6: a6, sPrime: safePrimes[safePrimeIndex])
             
             print("unscrambling successful")
-            var unscrambledImage = imc.getCurrentImage()
+            let unscrambledImage = imc.getCurrentImage()
 
             unscrambledUIImage = unscrambledImage.uiImage
         }

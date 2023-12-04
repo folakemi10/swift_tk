@@ -31,7 +31,7 @@ class ScramblingViewController: UIViewController {
         super.viewDidLoad()
         
         
-        let timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(updateStatus), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(updateStatus), userInfo: nil, repeats: true)
 
         //var image = Image<RGBA<UInt8>>(named: "ImageName")!
 

@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 import SwiftImage
 import SwiftUI
+import Firebase
+import FirebaseStorage
 
 class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -17,6 +19,8 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var timeElapsed: UITextField!
     @IBOutlet weak var puzzleImage: UIImageView!
     
+    @IBOutlet weak var HighScore: UITextField!
+    @IBOutlet weak var score: UITextField!
     var scrambledImage: UIImage?
     var modulo2: Int = 0
     var dimension: Int = 0
@@ -54,20 +58,20 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
         
         if (targetPoint.x >= 0 && targetPoint.x <= puzzleImage.frame.width) {
             if (targetPoint.y >= 0 && targetPoint.y <= puzzleImage.frame.height) {
-                var xCoordinate = targetPoint.x
-                var yCoordinate = targetPoint.y
+                let xCoordinate = targetPoint.x
+                let yCoordinate = targetPoint.y
                 
                
                 
-                var xImgCoord = Int((Int(xCoordinate) * dimension) / (Int(puzzleImage.frame.width)))
-                var yImgCoord = Int((Int(yCoordinate) * dimension) / (Int(puzzleImage.frame.width)))
+                let xImgCoord = Int((Int(xCoordinate) * dimension) / (Int(puzzleImage.frame.width)))
+                let yImgCoord = Int((Int(yCoordinate) * dimension) / (Int(puzzleImage.frame.width)))
                 
                 if (modulo2 % 2 == 0) {
                     lastX = xImgCoord
                     lastY = yImgCoord
                 }
                 else {
-                    var imc = ImageModificationClass(imageArg: scrambledImage!)
+                    let imc = ImageModificationClass(imageArg: scrambledImage!)
                     imc.setSafePrimeIndex(spIndex: safePrimeIndex)
                     imc.setMosaicPixelSize(pxSize: Int(puzzleImage.frame.width) / dimension)
                     imc.swapPixels(x1: lastX, y1: lastY, x2: xImgCoord, y2: yImgCoord)

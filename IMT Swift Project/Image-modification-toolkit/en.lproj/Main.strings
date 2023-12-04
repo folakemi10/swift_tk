@@ -1,0 +1,309 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "21T-2w-VFw"; */
+"21T-2w-VFw.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "Decryption key:"; ObjectID = "395-Nh-zf7"; */
+"395-Nh-zf7.text" = "Decryption key:";
+
+/* Class = "UITextField"; text = "Height"; ObjectID = "3Wg-Xr-q8M"; */
+"3Wg-Xr-q8M.text" = "Height";
+
+/* Class = "UIButton"; configuration.title = "Login "; ObjectID = "3yc-6x-oAX"; */
+"3yc-6x-oAX.configuration.title" = "Login ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "3yc-6x-oAX"; */
+"3yc-6x-oAX.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Disney"; ObjectID = "4hF-pV-lDM"; */
+"4hF-pV-lDM.configuration.title" = "Disney";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4hF-pV-lDM"; */
+"4hF-pV-lDM.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Already have an account?"; ObjectID = "4jP-ed-dns"; */
+"4jP-ed-dns.text" = "Already have an account?";
+
+/* Class = "UIButton"; configuration.title = "Download Image"; ObjectID = "5PT-EM-Pzy"; */
+"5PT-EM-Pzy.configuration.title" = "Download Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5PT-EM-Pzy"; */
+"5PT-EM-Pzy.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Animals"; ObjectID = "6EK-xj-318"; */
+"6EK-xj-318.configuration.title" = "Animals";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6EK-xj-318"; */
+"6EK-xj-318.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "Best Time:"; ObjectID = "6i8-Br-jkO"; */
+"6i8-Br-jkO.text" = "Best Time:";
+
+/* Class = "UILabel"; text = "Enter your account details"; ObjectID = "8Cz-bd-poc"; */
+"8Cz-bd-poc.text" = "Enter your account details";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "9Zm-tl-PxC"; */
+"9Zm-tl-PxC.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "Games"; ObjectID = "9w2-2w-Xtc"; */
+"9w2-2w-Xtc.configuration.title" = "Games";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "9w2-2w-Xtc"; */
+"9w2-2w-Xtc.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Sign Up"; ObjectID = "A0z-be-gc4"; */
+"A0z-be-gc4.configuration.title" = "Sign Up";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "A0z-be-gc4"; */
+"A0z-be-gc4.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "C2c-vy-sbw"; */
+"C2c-vy-sbw.title" = "Logout";
+
+/* Class = "UITextField"; text = "50"; ObjectID = "CA7-iq-z2n"; */
+"CA7-iq-z2n.text" = "50";
+
+/* Class = "UISegmentedControl"; CeS-w7-gcb.segmentTitles[0] = "Scrambling"; ObjectID = "CeS-w7-gcb"; */
+"CeS-w7-gcb.segmentTitles[0]" = "Scrambling";
+
+/* Class = "UISegmentedControl"; CeS-w7-gcb.segmentTitles[1] = "Unscrambling"; ObjectID = "CeS-w7-gcb"; */
+"CeS-w7-gcb.segmentTitles[1]" = "Unscrambling";
+
+/* Class = "UISegmentedControl"; CeS-w7-gcb.segmentTitles[2] = "Mosaic"; ObjectID = "CeS-w7-gcb"; */
+"CeS-w7-gcb.segmentTitles[2]" = "Mosaic";
+
+/* Class = "UITextField"; placeholder = "pasword"; ObjectID = "Cjd-8B-Z1K"; */
+"Cjd-8B-Z1K.placeholder" = "pasword";
+
+/* Class = "UITextField"; placeholder = "email"; ObjectID = "Cnl-KH-ncJ"; */
+"Cnl-KH-ncJ.placeholder" = "email";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "D50-US-NzT"; */
+"D50-US-NzT.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Download Image"; ObjectID = "Dop-zC-zkM"; */
+"Dop-zC-zkM.configuration.title" = "Download Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Dop-zC-zkM"; */
+"Dop-zC-zkM.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "Width"; ObjectID = "FBJ-fD-CFk"; */
+"FBJ-fD-CFk.text" = "Width";
+
+/* Class = "UIButton"; configuration.title = "Upload Image"; ObjectID = "GbQ-hX-m4g"; */
+"GbQ-hX-m4g.configuration.title" = "Upload Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "GbQ-hX-m4g"; */
+"GbQ-hX-m4g.normalTitle" = "Button";
+
+/* Class = "UITextView"; text = "Modify your images in minutes using our toolkit"; ObjectID = "Hcg-LM-dhg"; */
+"Hcg-LM-dhg.text" = "Modify your images in minutes using our toolkit";
+
+/* Class = "UITextField"; text = "0"; ObjectID = "I1g-Tx-i6s"; */
+"I1g-Tx-i6s.text" = "0";
+
+/* Class = "UIButton"; configuration.title = "Save to Profile"; ObjectID = "Iqk-e4-cOZ"; */
+"Iqk-e4-cOZ.configuration.title" = "Save to Profile";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Iqk-e4-cOZ"; */
+"Iqk-e4-cOZ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "KZ3-Ki-AdK"; */
+"KZ3-Ki-AdK.text" = "Label";
+
+/* Class = "UITextField"; text = "Copy your encryption key to share with friends"; ObjectID = "Kl1-Cm-RZB"; */
+"Kl1-Cm-RZB.text" = "Copy your encryption key to share with friends";
+
+/* Class = "UITextField"; text = "Score"; ObjectID = "MKq-ge-gLi"; */
+"MKq-ge-gLi.text" = "Score";
+
+/* Class = "UITextField"; text = "Highest Score"; ObjectID = "Mdh-C3-VyM"; */
+"Mdh-C3-VyM.text" = "Highest Score";
+
+/* Class = "UITextView"; text = "Chose a puzzle"; ObjectID = "N67-ha-qOO"; */
+"N67-ha-qOO.text" = "Chose a puzzle";
+
+/* Class = "UIButton"; configuration.title = "Paintings"; ObjectID = "N8a-VH-fTd"; */
+"N8a-VH-fTd.configuration.title" = "Paintings";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "N8a-VH-fTd"; */
+"N8a-VH-fTd.normalTitle" = "Button";
+
+/* Class = "UITextView"; text = "Past Projects"; ObjectID = "NeD-bF-IaL"; */
+"NeD-bF-IaL.text" = "Past Projects";
+
+/* Class = "UIButton"; configuration.title = "Guess"; ObjectID = "O2X-CT-cAV"; */
+"O2X-CT-cAV.configuration.title" = "Guess";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "O2X-CT-cAV"; */
+"O2X-CT-cAV.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "Guess the Image:"; ObjectID = "PSb-aL-oZj"; */
+"PSb-aL-oZj.text" = "Guess the Image:";
+
+/* Class = "UITextField"; placeholder = "username"; ObjectID = "PUe-a7-CFb"; */
+"PUe-a7-CFb.placeholder" = "username";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "R04-zw-gfY"; */
+"R04-zw-gfY.title" = "Item";
+
+/* Class = "UITextField"; text = "Time Elapsed:"; ObjectID = "RHx-XE-wuW"; */
+"RHx-XE-wuW.text" = "Time Elapsed:";
+
+/* Class = "UIButton"; configuration.title = "ToolKit"; ObjectID = "S15-5l-4Oa"; */
+"S15-5l-4Oa.configuration.title" = "ToolKit";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "S15-5l-4Oa"; */
+"S15-5l-4Oa.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Transform"; ObjectID = "SEK-zS-IeQ"; */
+"SEK-zS-IeQ.configuration.title" = "Transform";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "SEK-zS-IeQ"; */
+"SEK-zS-IeQ.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Scramble"; ObjectID = "Tcm-Q5-0qj"; */
+"Tcm-Q5-0qj.configuration.title" = "Scramble";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Tcm-Q5-0qj"; */
+"Tcm-Q5-0qj.normalTitle" = "Button";
+
+/* Class = "UITextView"; text = "Unleash your creativity and create cool images to send to friends or and try one of our games and challenge your visual agility!"; ObjectID = "Tsz-Eb-2iN"; */
+"Tsz-Eb-2iN.text" = "Unleash your creativity and create cool images to send to friends or and try one of our games and challenge your visual agility!";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "U9H-Tf-UOo"; */
+"U9H-Tf-UOo.text" = "00:00";
+
+/* Class = "UITextField"; text = "5786YUP0909"; ObjectID = "Vbe-SC-PVs"; */
+"Vbe-SC-PVs.text" = "5786YUP0909";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "Vbw-ho-Rbh"; */
+"Vbw-ho-Rbh.text" = "Login";
+
+/* Class = "UIButton"; configuration.title = "Save to Profile"; ObjectID = "VrW-ZH-dPl"; */
+"VrW-ZH-dPl.configuration.title" = "Save to Profile";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "VrW-ZH-dPl"; */
+"VrW-ZH-dPl.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "VyC-Iu-Br4"; */
+"VyC-Iu-Br4.placeholder" = "password";
+
+/* Class = "UIButton"; configuration.title = "Monuments"; ObjectID = "WIa-44-1r3"; */
+"WIa-44-1r3.configuration.title" = "Monuments";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WIa-44-1r3"; */
+"WIa-44-1r3.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Decrypt"; ObjectID = "Wqw-cS-clz"; */
+"Wqw-cS-clz.configuration.title" = "Decrypt";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Wqw-cS-clz"; */
+"Wqw-cS-clz.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "(Click on two pieces to swap their locations)"; ObjectID = "XZl-8G-Mym"; */
+"XZl-8G-Mym.text" = "(Click on two pieces to swap their locations)";
+
+/* Class = "UIButton"; configuration.title = "Login"; ObjectID = "YjG-0N-bN8"; */
+"YjG-0N-bN8.configuration.title" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "YjG-0N-bN8"; */
+"YjG-0N-bN8.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Download Image"; ObjectID = "Zoo-Fi-O8N"; */
+"Zoo-Fi-O8N.configuration.title" = "Download Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Zoo-Fi-O8N"; */
+"Zoo-Fi-O8N.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Upload Image"; ObjectID = "aQE-rN-Ry9"; */
+"aQE-rN-Ry9.configuration.title" = "Upload Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "aQE-rN-Ry9"; */
+"aQE-rN-Ry9.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Number of Pieces"; ObjectID = "aXh-MQ-6Hu"; */
+"aXh-MQ-6Hu.text" = "Number of Pieces";
+
+/* Class = "UITextField"; text = "Size"; ObjectID = "bs0-JN-Jia"; */
+"bs0-JN-Jia.text" = "Size";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "chJ-1S-Jfk"; */
+"chJ-1S-Jfk.text" = "Sign Up";
+
+/* Class = "UITextField"; text = "Input Dimension"; ObjectID = "ezb-1O-juK"; */
+"ezb-1O-juK.text" = "Input Dimension";
+
+/* Class = "UIButton"; configuration.title = "Download Image"; ObjectID = "fQv-Ii-bGb"; */
+"fQv-Ii-bGb.configuration.title" = "Download Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fQv-Ii-bGb"; */
+"fQv-Ii-bGb.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "0"; ObjectID = "hG7-vm-iLk"; */
+"hG7-vm-iLk.text" = "0";
+
+/* Class = "UITextField"; text = "Key"; ObjectID = "igY-fz-QHi"; */
+"igY-fz-QHi.text" = "Key";
+
+/* Class = "UITextField"; text = "Input Encryption Key to Unlock Image"; ObjectID = "jk3-dg-YI7"; */
+"jk3-dg-YI7.text" = "Input Encryption Key to Unlock Image";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "k8V-9N-8gG"; */
+"k8V-9N-8gG.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "Choose Image"; ObjectID = "lcP-Ho-1Z8"; */
+"lcP-Ho-1Z8.configuration.title" = "Choose Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lcP-Ho-1Z8"; */
+"lcP-Ho-1Z8.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "email"; ObjectID = "mbQ-pT-xAB"; */
+"mbQ-pT-xAB.placeholder" = "email";
+
+/* Class = "UILabel"; text = "Create an account to get started"; ObjectID = "n3u-Ha-fNw"; */
+"n3u-Ha-fNw.text" = "Create an account to get started";
+
+/* Class = "UISegmentedControl"; nSz-KT-81f.segmentTitles[0] = "Puzzle Image"; ObjectID = "nSz-KT-81f"; */
+"nSz-KT-81f.segmentTitles[0]" = "Puzzle Image";
+
+/* Class = "UISegmentedControl"; nSz-KT-81f.segmentTitles[1] = "Guess Image"; ObjectID = "nSz-KT-81f"; */
+"nSz-KT-81f.segmentTitles[1]" = "Guess Image";
+
+/* Class = "UICommand"; title = "Item 2"; ObjectID = "oAd-pz-UzT"; */
+"oAd-pz-UzT.title" = "Item 2";
+
+/* Class = "UICommand"; title = "Item 1"; ObjectID = "peq-hp-UFa"; */
+"peq-hp-UFa.title" = "Item 1";
+
+/* Class = "UIButton"; configuration.title = "Upload Image"; ObjectID = "pyD-O0-7Zd"; */
+"pyD-O0-7Zd.configuration.title" = "Upload Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pyD-O0-7Zd"; */
+"pyD-O0-7Zd.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "Time Elapsed:"; ObjectID = "qKA-Xb-R5D"; */
+"qKA-Xb-R5D.text" = "Time Elapsed:";
+
+/* Class = "UIButton"; configuration.title = "Game Start!"; ObjectID = "qzO-3o-bwy"; */
+"qzO-3o-bwy.configuration.title" = "Game Start!";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qzO-3o-bwy"; */
+"qzO-3o-bwy.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "0"; ObjectID = "t0p-ka-eZe"; */
+"t0p-ka-eZe.text" = "0";
+
+/* Class = "UIButton"; configuration.title = "Save to Profile"; ObjectID = "vqT-qM-95X"; */
+"vqT-qM-95X.configuration.title" = "Save to Profile";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vqT-qM-95X"; */
+"vqT-qM-95X.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "image bank"; ObjectID = "xXR-zn-eHJ"; */
+"xXR-zn-eHJ.text" = "image bank";
+
+/* Class = "UIButton"; configuration.title = "Profile"; ObjectID = "yY9-zT-Ikk"; */
+"yY9-zT-Ikk.configuration.title" = "Profile";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "yY9-zT-Ikk"; */
+"yY9-zT-Ikk.normalTitle" = "Button";

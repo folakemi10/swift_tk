@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
 
     private func checkUsernameAndPassword(email: String, password: String) {
         let db = Firestore.firestore()
-        let usersRef = db.collection("users")
+        _ = db.collection("users")
         
         Auth.auth().signIn(withEmail: email, password: password){ authResult, error in
             if let error = error {

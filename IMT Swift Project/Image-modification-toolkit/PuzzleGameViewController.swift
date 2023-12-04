@@ -56,7 +56,7 @@ class PuzzleGameViewController: UIViewController {
         
         let pxSize = Int(Int(uploadImage4.frame.width) / safePrimes[safePrimeIndex])
         
-        var imc = ImageModificationClass(imageArg: uploadImage4.image!)
+        let imc = ImageModificationClass(imageArg: uploadImage4.image!)
         
         imc.setMosaicPixelSize(pxSize: pxSize)
         

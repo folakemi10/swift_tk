@@ -31,7 +31,7 @@ class MosaicFinishedViewController: UIViewController {
             }
 
         let storageRef = FirebaseStorage.Storage.storage().reference()
-        let database = Firestore.firestore()
+        _ = Firestore.firestore()
         let imageUUID = UUID().uuidString
         let userImagesRef = storageRef.child("user_images/\(uid)/\(imageUUID).jpg")
         if let imageData = unscrambledResult.jpegData(compressionQuality: 0.8) {

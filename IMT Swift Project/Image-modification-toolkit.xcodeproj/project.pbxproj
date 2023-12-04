@@ -60,6 +60,7 @@
 		3F1CF3F02B04A22A0049D6FF /* UnscramblingFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnscramblingFinishedViewController.swift; sourceTree = "<group>"; };
 		3F1CF3F22B04A2420049D6FF /* MosaicFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicFinishedViewController.swift; sourceTree = "<group>"; };
 		3F5BDC752B1794CE005FB28C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3F5F629C2B1D6E0800A3722B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3FA29F502B1755760065DB43 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3FB0803F2B18F43000B51B90 /* GuessIndividualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessIndividualViewController.swift; sourceTree = "<group>"; };
 		3FF3ADA42B1887150036C9D5 /* PuzzleInnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleInnerViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +283,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9AB48F122AFAC88600E4C8FA /* Base */,
+				3F5F629C2B1D6E0800A3722B /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
