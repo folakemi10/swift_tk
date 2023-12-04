@@ -18,9 +18,9 @@ class PuzzleGameViewController: UIViewController {
 
         numPieces.minimumValue = 0
         numPieces.maximumValue = 11
-        numPieces.value = 3
+        //numPieces.value = 3
         numPieces.isContinuous = false
-        // Do any additional setup after loading the view.
+    
     }
     
     var scrambledUIImage: UIImage?
@@ -41,15 +41,7 @@ class PuzzleGameViewController: UIViewController {
         present(vc, animated: true)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
     
     func scrambleImg() {
         safePrimeIndex = Int(numPieces.value)

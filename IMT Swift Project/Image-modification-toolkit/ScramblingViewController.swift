@@ -33,20 +33,15 @@ class ScramblingViewController: UIViewController {
         
         _ = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(updateStatus), userInfo: nil, repeats: true)
 
-        //var image = Image<RGBA<UInt8>>(named: "ImageName")!
-
         safePrimeSlider.minimumValue = 0
         safePrimeSlider.maximumValue = 11
         safePrimeSlider.value = 3
         safePrimeSlider.isContinuous = false
 
-        
-        // Do any additional setup after loading the view.
     }
     
     @objc func updateStatus () {
         scramblingProgress = imc.getPercentScrambled()
-        //print("scrambling progress: \(scramblingProgress)%")
     }
     
     var scramblingPlaceholderBefore: UIImage = UIImage(named: "normalplaceholder")!
@@ -60,17 +55,6 @@ class ScramblingViewController: UIViewController {
         vc.allowsEditing = true
         present(vc, animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -79,15 +63,10 @@ extension ScramblingViewController: UIImagePickerControllerDelegate, UINavigatio
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")]as? UIImage{
             uploadImage.image = image
 
-            
-            
-            
         }
-        //uploadImage.image = scramblingPlaceholderBefore;
         picker.dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        //uploadImage.image = scramblingPlaceholderBefore;
         picker.dismiss(animated: true, completion: nil)
     }
     

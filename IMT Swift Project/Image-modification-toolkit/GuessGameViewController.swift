@@ -68,12 +68,8 @@ class GuessGameViewController: UIViewController {
         }
 
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            print("0e", segue.identifier ?? ",eee")
-            print("0", categorieName ?? "000p")
             if segue.identifier == categorieName {
-                print("nicrre", categories[index ?? 0].category)
                 if let destinationVC = segue.destination as? GuessIndividualViewController {
-                    print("nice", categories[2].category)
                     destinationVC.category = categories[index ?? 0]
                 }
             }

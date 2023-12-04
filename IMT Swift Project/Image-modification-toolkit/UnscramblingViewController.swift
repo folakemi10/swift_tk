@@ -43,15 +43,6 @@ class UnscramblingViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -59,15 +50,10 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")]as? UIImage{
             uploadImage2.image = image
-            
-            print("went in here")
-            
         }
-        //uploadImage2.image = unscramblingPlaceholderBefore
         picker.dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        //uploadImage2.image = unscramblingPlaceholderBefore
         
         picker.dismiss(animated: true, completion: nil)
     }
@@ -128,9 +114,6 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
     }
     func unscrambleImg() {
         let imc = ImageModificationClass(imageArg: uploadImage2.image!)
-        print("idk idk")
-
-        print("is the input text nil? \(inputText == nil)")
         if (inputText != nil) {
             let regexKey = /(\d+\s){12}\d+/
             if !inputText!.contains(regexKey) {
@@ -139,8 +122,6 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
                 self.showAlert(message: "Invalid Key")
                 return
             }
-            
-            print("the key is now valid!")
             keyValid = true
             let codeNumbers = inputText!.components(separatedBy: " ")
             
@@ -171,7 +152,6 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
             
             
             if (!codeValid(inputArray: codeNums, spIndex: safePrimeIndex)) {
-                print("unscrambling unsuccessful")
                 self.showAlert(message: "Invalid Key")
                 return
             }
@@ -183,7 +163,6 @@ extension UnscramblingViewController: UIImagePickerControllerDelegate, UINavigat
             
             imc.enhancedMosaicDecrypt(pr1: root1, pr2: root2, pr3: root3, pr4: root4, pr5: root5, pr6: root6, a1: a1, a2: a2, a3: a3, a4: a4, a5: a5, a6: a6, sPrime: safePrimes[safePrimeIndex])
             
-            print("unscrambling successful")
             let unscrambledImage = imc.getCurrentImage()
 
             unscrambledUIImage = unscrambledImage.uiImage

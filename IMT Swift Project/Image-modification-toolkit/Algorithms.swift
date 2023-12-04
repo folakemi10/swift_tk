@@ -628,7 +628,6 @@ class ImageModificationClass{
         return unscrambled
     }
     
-    //now, onto layer 4 (the surface level) of the encryption/decryption functions
     
     public func enhancedMosaicEncrypt () {
         let width = (safePrime - 1) * pixelSize

@@ -39,7 +39,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @objc func profilePictureTapped() {
         showImagePicker()
     }
-
+    
+    @IBAction func logout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            if let registerViewController = self.storyboard?.instantiateViewController(withIdentifier: "registerViewController") {
+                if let navigationController = self.navigationController {
+                    navigationController.setViewControllers([registerViewController], animated: true)
+                }
+            }
+            
+        } catch let signOutError as NSError {
+            print("Error signing out: \(signOutError.localizedDescription)")
+        }
+    }
     @IBAction func editButton(_ sender: Any) {
         showImagePicker()
     }
@@ -161,12 +174,11 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
     let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: cell.contentView.frame.width - 180, height: 90))
     imageView.image = imageModel.image
-    //imageView.contentMode = .scaleAspectFill
+    imageView.contentMode = .scaleAspectFill
     imageView.clipsToBounds = true
-
+    
     cell.contentView.addSubview(imageView)
 
-    // Create a delete button
     let deleteButton = UIButton(type: .system)
     deleteButton.frame = CGRect(x: 10, y: 10, width: 18, height: 18)
     deleteButton.setTitle("x", for: .normal)
@@ -177,7 +189,6 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
     cell.contentView.addSubview(deleteButton)
 
-    // Create a view button
     let viewButton = UIButton(type: .system)
     viewButton.frame = CGRect(x: 10, y: 28, width: 18, height: 18)
     viewButton.setTitle("+", for: .normal)
@@ -313,7 +324,6 @@ func showSavedImagesController(with selectedImage: ImageModel) {
                             if let imageUrl = url {
                                 URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
                                     if let data = data, let image = UIImage(data: data) {
-                                        // Cache the downloaded image
                                         self.imageCache.setObject(image, forKey: imageUUID as NSString)
                                         let imageModel = ImageModel(image: image, encryptionCode: encryptionCode, timestamp: timestamp, imageUUID: imageUUID)
                                         self.images.append(imageModel)

@@ -35,9 +35,6 @@ class MosaicViewController: UIViewController {
             else if (action.title == "image set 4") {
                 self.imageSetNumber = 4
             }
-            
-            print("using image set \(self.imageSetNumber)")
-
         }
         imageBank.menu = UIMenu(children: [
             UIAction(title: "image set 1", state: .on, handler: menuClosure),
@@ -86,16 +83,6 @@ class MosaicViewController: UIViewController {
         vc.allowsEditing = true
         present(vc, animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

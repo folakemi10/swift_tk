@@ -26,8 +26,6 @@ class GuessIndividualViewController: UIViewController, UIGestureRecognizerDelega
         super.viewDidLoad()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateStatus), userInfo: nil, repeats: true)
         YourTime.isUserInteractionEnabled = false
-        print("uo1", category?.images[currentImageIndex].imageName ?? 0)
-        print("uo000", category?.category ?? 0)
         loadNextImage()
         fetchAndDisplayBestTime()
     }

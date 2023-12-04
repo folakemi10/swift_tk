@@ -18,6 +18,7 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
     var secondsElapsed: Double = 0.0
     @IBOutlet weak var timeElapsed: UITextField!
     @IBOutlet weak var puzzleImage: UIImageView!
+    let category = "Puzzle"
     
     @IBOutlet weak var HighScore: UITextField!
     @IBOutlet weak var score: UITextField!
@@ -32,8 +33,10 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
     var lastY: Int = 0
     
     var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchAndDisplayBestTime()
         puzzleImage.image = scrambledImage
 
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateStatus), userInfo: nil, repeats: true)
@@ -77,31 +80,20 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
                     imc.swapPixels(x1: lastX, y1: lastY, x2: xImgCoord, y2: yImgCoord)
                     scrambledImage = imc.getCurrentImage().uiImage
                     puzzleImage.image = scrambledImage
-                    
-                    //checkIfSolved(imc: imc)
-                    
+              
                 }
-                
-                
-
-                print("(x, y) = (\(xImgCoord), \(yImgCoord)))")
                 
                 modulo2 += 1
             }
         }
         
-        
-        
-        
-
     }
     func checkIfSolved(imc: ImageModificationClass) {
         if (imc.equivalent(inputimg: Image<RGBA<UInt8>> (uiImage: original!))) {
             stopTimer()
-            if (secondsElapsed < bestTime) {
-                bestTime = secondsElapsed
-            }
-            
+            saveGameToFirestore(time: secondsElapsed)
+            fetchAndDisplayBestTime()
+          
             if (bestTime.truncatingRemainder(dividingBy: 60.0) < 9.99999) {
                 bestTimeField.text = String(format: "\(Int(bestTime / 60.0)):0%.1f", bestTime.truncatingRemainder(dividingBy: 60.0))
             }
@@ -111,6 +103,61 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
             
         }
     }
+    
+    func saveGameToFirestore(time: Double) {
+            guard let user = Auth.auth().currentUser else {
+                return
+            }
+
+            let db = Firestore.firestore()
+
+        let query = db.collection("games").whereField("userID", isEqualTo: user.uid).whereField("game_name", isEqualTo: category )
+            query.getDocuments { (snapshot, error) in
+                guard let documents = snapshot?.documents else {
+                    print("Error fetching documents: \(error?.localizedDescription ?? "Unknown error")")
+                    return
+                }
+
+                if let existingGameDoc = documents.first {
+                    let existingTime = existingGameDoc.data()["time"] as? Double ?? 0.0
+                    if time < existingTime {
+                        existingGameDoc.reference.updateData(["time": time])
+                        print("Updated existing game time.")
+                    }
+                } else {
+                    let gameRef = db.collection("games").document()
+                    let data: [String: Any] = [
+                        "userID": user.uid,
+                        "time": time,
+                        "game_name": self.category
+                    ]
+
+                    gameRef.setData(data) { error in
+                        if let error = error {
+                            print("Error saving game to Firestore: \(error.localizedDescription)")
+                        } else {
+                            print("Game saved successfully to Firestore.")
+                        }
+                    }
+                }
+            }
+        }
+
+    func fetchAndDisplayBestTime() {
+        let db = Firestore.firestore()
+        let query = db.collection("games").whereField("game_name", isEqualTo: self.category).order(by: "time", descending: false).limit(to: 1)
+        query.getDocuments { (snapshot, error) in
+            guard let documents = snapshot?.documents, let bestGameDoc = documents.first else {
+                print("Error fetching best time: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+
+            let bestTime = bestGameDoc.data()["time"] as? Double ?? 0.0
+            self.HighScore.text = String(format: "%.1f", bestTime)
+        }
+    }
+
+    
     func stopTimer() {
         timer?.invalidate()
         timer = nil
