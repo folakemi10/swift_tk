@@ -131,7 +131,6 @@ class GuessIndividualViewController: UIViewController, UIGestureRecognizerDelega
             let query = db.collection("games").whereField("game_name", isEqualTo: category).order(by: "time", descending: false).limit(to: 1)
             query.getDocuments { (snapshot, error) in
                 guard let documents = snapshot?.documents, let bestGameDoc = documents.first else {
-                    print("Error fetching best time: \(error?.localizedDescription ?? "Unknown error")")
                     return
                 }
 

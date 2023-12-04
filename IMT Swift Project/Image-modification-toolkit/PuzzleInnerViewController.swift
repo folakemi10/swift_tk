@@ -14,12 +14,12 @@ import FirebaseStorage
 
 class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    @IBOutlet weak var bestTimeField: UITextField!
     var secondsElapsed: Double = 0.0
     @IBOutlet weak var timeElapsed: UITextField!
     @IBOutlet weak var puzzleImage: UIImageView!
     let category = "Puzzle"
     
+    @IBOutlet weak var originalImage: UIImageView!
     @IBOutlet weak var HighScore: UITextField!
     @IBOutlet weak var score: UITextField!
     var scrambledImage: UIImage?
@@ -38,7 +38,7 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         fetchAndDisplayBestTime()
         puzzleImage.image = scrambledImage
-
+        originalImage.image =  original
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateStatus), userInfo: nil, repeats: true)
         
         timeElapsed.isUserInteractionEnabled = false
@@ -78,6 +78,7 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
                     imc.setSafePrimeIndex(spIndex: safePrimeIndex)
                     imc.setMosaicPixelSize(pxSize: Int(puzzleImage.frame.width) / dimension)
                     imc.swapPixels(x1: lastX, y1: lastY, x2: xImgCoord, y2: yImgCoord)
+                    checkIfSolved(imc: imc)
                     scrambledImage = imc.getCurrentImage().uiImage
                     puzzleImage.image = scrambledImage
               
@@ -89,18 +90,25 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     func checkIfSolved(imc: ImageModificationClass) {
+        print("here")
         if (imc.equivalent(inputimg: Image<RGBA<UInt8>> (uiImage: original!))) {
+            print("here2")
             stopTimer()
             saveGameToFirestore(time: secondsElapsed)
             fetchAndDisplayBestTime()
+            showAlert(message: "Congratulations! You completed the puzzle.")
           
             if (bestTime.truncatingRemainder(dividingBy: 60.0) < 9.99999) {
-                bestTimeField.text = String(format: "\(Int(bestTime / 60.0)):0%.1f", bestTime.truncatingRemainder(dividingBy: 60.0))
+                HighScore.text = String(format: "\(Int(bestTime / 60.0)):0%.1f", bestTime.truncatingRemainder(dividingBy: 60.0))
             }
             else {
-                bestTimeField.text = String(format: "\(Int(bestTime / 60.0)):%.1f", bestTime.truncatingRemainder(dividingBy: 60.0))
+                HighScore.text = String(format: "\(Int(bestTime / 60.0)):%.1f", bestTime.truncatingRemainder(dividingBy: 60.0))
             }
             
+        }
+        else {
+            let scambledImage = imc.getCurrentImage().uiImage
+            originalImage.image = scambledImage
         }
     }
     
@@ -142,13 +150,18 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
             }
         }
-
+    
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "message", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func fetchAndDisplayBestTime() {
         let db = Firestore.firestore()
         let query = db.collection("games").whereField("game_name", isEqualTo: self.category).order(by: "time", descending: false).limit(to: 1)
         query.getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents, let bestGameDoc = documents.first else {
-                print("Error fetching best time: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
 

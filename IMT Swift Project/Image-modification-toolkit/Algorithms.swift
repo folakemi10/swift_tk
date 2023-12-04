@@ -726,7 +726,7 @@ class ImageModificationClass{
                 }
             }
         }
-        if (counter <= 500) {
+        if (counter <= 400) {
             status = true
         }
         
