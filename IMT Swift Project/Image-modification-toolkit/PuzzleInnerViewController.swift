@@ -78,7 +78,7 @@ class PuzzleInnerViewController: UIViewController, UIGestureRecognizerDelegate {
                     imc.setSafePrimeIndex(spIndex: safePrimeIndex)
                     imc.setMosaicPixelSize(pxSize: Int(puzzleImage.frame.width) / dimension)
                     imc.swapPixels(x1: lastX, y1: lastY, x2: xImgCoord, y2: yImgCoord)
-                    checkIfSolved(imc: imc)
+                   // checkIfSolved(imc: imc)
                     scrambledImage = imc.getCurrentImage().uiImage
                     puzzleImage.image = scrambledImage
               
